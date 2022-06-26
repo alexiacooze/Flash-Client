@@ -1,0 +1,45 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
+.header {
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__logo {
+    width: 2rem;
+    border-radius: 50%;
+  }
+
+  &__nav-container {
+  }
+
+  &__menu {
+    list-style-type: none;
+    display: flex;
+
+
+  }
+
+  &__home {
+      margin-right: .5rem;
+  }
+
+  &__react {
+    margin-right: .5rem;
+  }
+
+  &__contact {
+    margin-right: .5rem;
+  }
+
+  &__faq {
+    margin-right: .5rem;
+  }
+
+  &__link {
+    color: black;
+  }
+}

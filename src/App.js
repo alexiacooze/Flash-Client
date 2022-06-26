@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.scss";
+import Api from "./components/Api/Api";
+import Components from "./components/ComponentsCategory/Components";
+import Conditionals from "./components/Conditionals/Conditionals";
+import Contact from "./components/Contact/Contact";
+import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions/FrequentlyAskedQuestions";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import Hooks from "./components/Hooks/Hooks";
+import ImportsAndExports from "./components/ImportsAndExports/ImportsAndExports";
+import Categories from "./components/React/React";
+import Routing from "./components/Routing/Routing";
+import Setup from "./components/Setup/Setup";
+import StateAndProps from "./components/StateandProps/StateAndProps";
+import Terminal from "./components/Terminal/Terminal";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/react" element={<Categories />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<FrequentlyAskedQuestions />} />
+        <Route path="/setup" element={<Setup />} />
+        <Route path="/state-props" element={<StateAndProps />} />
+        <Route path="/hooks" element={<Hooks />} />
+        <Route path="/routing" element={<Routing />} />
+        <Route path="/conditionals" element={<Conditionals />} />
+        <Route path="/components" element={<Components />} />
+        <Route path="/imports-exports" element={<ImportsAndExports />} />
+        <Route path="/api" element={<Api />} />
+        <Route path="/terminal" element={<Terminal />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

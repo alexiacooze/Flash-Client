@@ -1,0 +1,20 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
+.category {
+  &__main-container {
+    display: flex;
+    justify-content: center;
+  }
+  &__item-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    color: black;
+
+    width: 5rem;
+    height: 8rem;
+  }
+}
