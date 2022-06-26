@@ -17,6 +17,8 @@ import StateAndProps from "./components/StateandProps/StateAndProps";
 import Terminal from "./components/Terminal/Terminal";
 
 function App() {
+
+
   return (
     <BrowserRouter>
       <Header />
@@ -25,7 +27,10 @@ function App() {
         <Route path="/react" element={<Categories />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FrequentlyAskedQuestions />} />
-        <Route path="/setup" element={<Setup />} />
+        <Route 
+        path="/setup" 
+        element={<Setup />} 
+        />
         <Route path="/state-props" element={<StateAndProps />} />
         <Route path="/hooks" element={<Hooks />} />
         <Route path="/routing" element={<Routing />} />

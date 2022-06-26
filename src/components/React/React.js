@@ -2,8 +2,9 @@ import "../React/React.scss";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+
 export default function Categories() {
-  return (
+  return ( 
     <section className="category">
       <div className="category__main-container">
         <ul className="category__item-container">
@@ -54,6 +55,7 @@ export default function Categories() {
           </NavLink>
         </ul>
       </div>
+      
     </section>
   );
 }
