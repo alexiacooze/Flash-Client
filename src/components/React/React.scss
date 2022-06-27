@@ -1,6 +1,23 @@
 @use "../../partials/variables" as *;
 @use "../../partials/mixins" as *;
 
+$lightblue: rgb(184, 241, 234);
+$lightpurple: rgba(148, 187, 233, 1);
+$purplebackground: rgb(212, 231, 253);
+$bluebackground: rgb(216, 255, 250);
+$buttonsize: 250px;
+
+
+
+body,
+html {
+    height: 100%;
+    display: grid;
+   
+    background: linear-gradient(30deg, $bluebackground 20%, $purplebackground 100%);
+}
+
+
 .category {
   &__main-container {
     display: flex;
@@ -10,11 +27,78 @@
     list-style-type: none;
     display: flex;
     flex-direction: column;
+    margin-right: 2rem;
   }
-  &__item {
-    color: black;
+  &__name {
+    font-size: 2rem;
+    padding: 2rem;
+  }
 
-    width: 5rem;
-    height: 8rem;
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    
+    // margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: 35%;
+    width: $buttonsize;
+    height: $buttonsize;
+    background: rgb(184, 241, 234);
+    background: linear-gradient(30deg, $lightblue 0%, $lightpurple 100%);
+    color: rgb(161, 234, 225);
+    font-size: 3.6em;
+    font-weight: 600;
+
+    box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.25),
+      inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+      1px 1px 15px 2px rgba(154, 137, 164, 0.5);
+
+    text-shadow: 1px -1px 3px rgba(143, 162, 199, 1),
+      -1px 1px 3px rgb(130, 201, 195);
+    outline: none;
+
+    -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
+    -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
+    transition: box-shadow 0.4s, text-shadow 0.5s;
+
+    &:hover {
+      cursor: pointer;
+
+      box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.15),
+        inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+        1px 1px 15px 2px rgba(154, 137, 164, 0.1);
+
+      text-shadow: 3px -3px 5px rgba(143, 162, 199, 1),
+        -3px 3px 5px rgb(145, 192, 186);
+
+      -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
+      -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
+      transition: box-shadow 0.4s, text-shadow 0.5s;
+    }
+
+    &:active {
+      background: linear-gradient(
+        30deg,
+        rgb(147, 206, 199) 0%,
+        rgba(177, 183, 223, 1) 100%
+      );
+      color: rgb(122, 162, 157);
+
+      box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.15),
+        1px 1px 15px 2px rgba(154, 137, 164, 0.1);
+
+      text-shadow: 1px -1px 1px rgba(143, 162, 199, 0.75),
+        -1px 1px 1px rgb(107, 160, 154);
+
+      -webkit-transition: background 0.3s color 0.2s,
+        text-shadow 0.3s box-shadow 0.3s;
+      -moz-transition: background 0.3s color 0.2s,
+        text-shadow 0.3s box-shadow 0.3s;
+      transition: background 0.3s color 0.2s, text-shadow 0.3s box-shadow 0.3s;
+    }
   }
 }
