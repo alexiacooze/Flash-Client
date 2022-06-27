@@ -40,7 +40,7 @@ export default function Categories() {
           </NavLink>
           <NavLink to="/imports-exports" style={{ textDecoration: "none" }}>
             <li className="category__item">
-              <p className="category__name">Module Imports and Exports</p>
+              <p className="category__name">Imports and Exports</p>
             </li>
           </NavLink>
           <NavLink to="/api" style={{ textDecoration: "none" }}>

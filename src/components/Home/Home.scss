@@ -1,0 +1,42 @@
+.home {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+    &__image {
+
+      width: 100%;
+      border-radius: 2%;
+      margin-top: 2rem;
+    }
+
+  &__slogan {
+    color: black;
+    font-weight: bold;
+    
+    position: relative;
+    bottom: 7.3rem;
+    left: 1.5rem;
+
+}
+
+
+
+&__intro, &__info-1, &__info-2, &__info-3, &__info-4 {
+    background-color: white;
+    padding: 2rem;
+    margin: 2rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5%;
+
+}
+
+}
+

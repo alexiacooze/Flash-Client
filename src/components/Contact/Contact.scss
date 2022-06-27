@@ -1,0 +1,135 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
+.contact {
+  &__header {
+  }
+
+  &__header-title {
+      margin-left: 1rem;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 2rem;
+  }
+
+  &__first-name {
+      margin-bottom: .5rem;
+      margin-top: 1rem;
+  }
+
+
+  &__last-name {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+  }
+
+  &__phone {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+  }
+
+  &__email {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+  }
+
+  &__message {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+      
+  }
+
+  &__message-input {
+    height: 4rem;
+    background-color: rgb(249, 249, 249);
+    border: none;
+    border-radius: 5px;
+    padding-left: .5rem;
+  }
+
+  &__input {
+      height: 1.5rem;
+      background-color: rgb(249, 249, 249);
+      border: none;
+      border-radius: 5px;
+      padding: .3rem .5rem;
+  }
+
+  &__button-container {
+display: flex;
+justify-content: flex-end;
+  }
+
+// button syle
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    margin: 2rem 2rem;
+    padding: .5rem 1rem;
+    width: 6rem;
+    
+
+    border: none;
+    border-radius: 10%;
+    background: rgb(184, 241, 234);
+    background: linear-gradient(30deg, $lightblue 0%, $lightpurple 100%);
+    color: rgb(179, 240, 233);
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.25),
+      inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+      1px 1px 15px 2px rgba(154, 137, 164, 0.5);
+
+    text-shadow: 1px -1px 3px rgba(143, 162, 199, 1),
+      -1px 1px 3px rgb(130, 201, 195);
+    outline: none;
+
+    -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
+    -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
+    transition: box-shadow 0.4s, text-shadow 0.5s;
+
+    &:hover {
+      cursor: pointer;
+
+      box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.15),
+        inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+        1px 1px 15px 2px rgba(154, 137, 164, 0.1);
+
+      text-shadow: 3px -3px 5px rgba(143, 162, 199, 1),
+        -3px 3px 5px rgb(145, 192, 186);
+
+      -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
+      -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
+      transition: box-shadow 0.4s, text-shadow 0.5s;
+    }
+
+    &:active {
+      background: linear-gradient(
+        30deg,
+        rgb(147, 206, 199) 0%,
+        rgba(177, 183, 223, 1) 100%
+      );
+      color: rgb(122, 162, 157);
+
+      box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.15),
+        1px 1px 15px 2px rgba(154, 137, 164, 0.1);
+
+      text-shadow: 1px -1px 1px rgba(143, 162, 199, 0.75),
+        -1px 1px 1px rgb(107, 160, 154);
+
+      -webkit-transition: background 0.3s color 0.2s,
+        text-shadow 0.3s box-shadow 0.3s;
+      -moz-transition: background 0.3s color 0.2s,
+        text-shadow 0.3s box-shadow 0.3s;
+      transition: background 0.3s color 0.2s, text-shadow 0.3s box-shadow 0.3s;
+    }
+  }
+}

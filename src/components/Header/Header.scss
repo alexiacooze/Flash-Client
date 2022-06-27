@@ -2,10 +2,20 @@
 @use "../../partials/mixins" as *;
 
 .header {
-
   &__container {
     display: flex;
     justify-content: space-around;
+    background-color: whitesmoke;
+    border-bottom: solid 2px rgb(232, 229, 255);
+    @include tablet {
+      padding: 1rem;
+
+    }
+
+    @include desktop {
+      justify-content: space-between;
+      font-size: 1.2rem;
+    }
   }
 
   &__logo {
@@ -20,26 +30,40 @@
     list-style-type: none;
     display: flex;
 
-
+   
   }
 
   &__home {
-      margin-right: .5rem;
+    margin-right: 0.5rem;
+    @include desktop {
+      margin-right: 2rem;
+    }
   }
 
   &__react {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
+    @include desktop {
+      margin-right: 2rem;
+    }
   }
 
   &__contact {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
+    @include desktop {
+      margin-right: 2rem;
+    }
   }
 
   &__faq {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
+    @include desktop {
+      margin-right: 2rem;
+    }
   }
 
   &__link {
-    color: black;
+    color: rgba(0, 0, 0, 0.631);
+    font-weight: bold;
+    font-family: fantasy;
   }
 }
