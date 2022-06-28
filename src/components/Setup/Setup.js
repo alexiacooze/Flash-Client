@@ -8,7 +8,7 @@ export default function Setup() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("react").then(res => setFlipCard(res.data));
+    CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
   }, []);
 
   const flip = (id) => {
@@ -29,26 +29,31 @@ export default function Setup() {
 
   return (
     <section className="setup">
-      <NavLink to="/react">
-        <img className="setup__back" src={back} alt="Back Arrow" />
-      </NavLink>
-      {flashcards.map((card) => {
-        return (
-          <div
-            className={`setup__card-container ${
-              card.flipped ? "setup__flip-card" : ""
-            } `}
-          >
+      <div className="setup__back-divider">
+        <NavLink to="/react">
+          <img className="setup__back" src={back} alt="Back Arrow" />
+        </NavLink>
+      </div>
+
+      <div className="setup__card-divider">
+        {flashcards.map((card) => {
+          return (
             <div
-              onClick={() => flip(card.id)}
-              className="setup__card"
-              key={card.id}
+              className={`setup__card-container ${
+                card.flipped ? "setup__flip-card" : ""
+              } `}
             >
-              <p>{card.flipped ? card.answer : card.questions}</p>
+              <div
+                onClick={() => flip(card.id)}
+                className="setup__card"
+                key={card.id}
+              >
+                <p>{card.flipped ? card.answer : card.questions}</p>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </section>
   );
 }
