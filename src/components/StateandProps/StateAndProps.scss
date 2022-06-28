@@ -1,6 +1,59 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
 .state {
-    &__back {
-        width: 2rem;
-        margin: 1rem;
+  background-color: #dcdcdc;
+
+  &__card-divider {
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 4.5rem;
+      padding: 1rem;
     }
+  }
+
+  &__back {
+    width: 2rem;
+    margin: 1rem;
+    display: inline;
+    @include desktop {
+      margin: 2rem;
+    }
+  }
+
+  &__card-container {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__card {
+    display: flex;
+
+    justify-content: center;
+    padding: 2rem;
+    margin: 0.5rem 1rem;
+    -webkit-box-shadow: -2px -1px 15px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px -3px 20px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 3%;
+    background-color: white;
+    transform: rotateY(var(--rotate-y, 0));
+    transform-style: preserve-3d;
+    transition: 500ms;
+
+    @include desktop {
+      padding: 4rem 2rem;
+      margin: 1rem;
+      width: 20rem;
+    }
+  }
+
+  &__flip-card {
+    --rotate-y: 180deg;
+    transform: scaleX(-1);
+  }
 }

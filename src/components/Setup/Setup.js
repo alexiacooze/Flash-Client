@@ -9,7 +9,9 @@ export default function Setup() {
 
   useEffect(() => {
     CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
+    // console.log(res);
   }, []);
+  
 
   const flip = (id) => {
     const filterId = flashcards.filter((item) => item.id === id);
