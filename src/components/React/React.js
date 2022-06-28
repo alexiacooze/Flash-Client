@@ -50,7 +50,7 @@ export default function Categories() {
           </NavLink>
           <NavLink to="/terminal" style={{ textDecoration: "none" }}>
             <li className="category__item">
-              <p className="category__name">Terminal</p>
+              <p className="category__name">Terminal and Git</p>
             </li>
           </NavLink>
         </ul>
