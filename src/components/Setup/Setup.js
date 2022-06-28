@@ -1,24 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { CATEGORIES_API } from "../../utils/appConfig";
 import "../Setup/Setup.scss";
 import back from "../../assets/Images/back.png";
 import { NavLink } from "react-router-dom";
 
 export default function Setup() {
-  const [flashcards, setFlipCard] = useState([
-    {
-      id: 1,
-      questions: "what is react",
-      answer: "a framework",
-      flipped: false,
-    },
+  const [flashcards, setFlipCard] = useState([]);
 
-    {
-      id: 2,
-      questions: "Question 2",
-      answer: " language",
-      flipped: false,
-    },
-  ]);
+  useEffect(() => {
+    CATEGORIES_API.getAll("react").then(res => setFlipCard(res.data));
+  }, []);
 
   const flip = (id) => {
     const filterId = flashcards.filter((item) => item.id === id);
