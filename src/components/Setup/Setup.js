@@ -8,8 +8,8 @@ export default function Setup() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
-    // console.log(res);
+    CATEGORIES_API.getAll("setup").then((res) => { setFlipCard(res.data); console.log(res)});
+    
   }, []);
   
 

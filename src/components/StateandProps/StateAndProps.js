@@ -9,7 +9,7 @@ export default function StateAndProps() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
+    CATEGORIES_API.getAll("state").then((res) => setFlipCard(res.data));
     
   }, []);
   

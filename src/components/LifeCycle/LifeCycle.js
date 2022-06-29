@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { CATEGORIES_API } from "../../utils/appConfig";
-import "../ComponentsCategory/Components.scss"
+import "./LifeCycle.scss"
 import { NavLink } from 'react-router-dom'
 import back from "../../assets/Images/back.png";
 
-export default function Components() {
+export default function LifeCycle() {
   
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
+    CATEGORIES_API.getAll("lifecycle").then((res) => setFlipCard(res.data));
     // console.log(res);
   }, []);
   

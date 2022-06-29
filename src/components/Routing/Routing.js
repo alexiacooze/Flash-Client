@@ -13,7 +13,7 @@ export default function Routing() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
+    CATEGORIES_API.getAll("routing").then((res) => setFlipCard(res.data));
     // console.log(res);
   }, []);
   

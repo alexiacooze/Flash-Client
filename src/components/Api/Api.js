@@ -9,8 +9,8 @@ export default function Api() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("react").then((res) => setFlipCard(res.data));
-    // console.log(res);
+    CATEGORIES_API.getAll("api").then((res) => setFlipCard(res.data));
+    
   }, []);
   
 

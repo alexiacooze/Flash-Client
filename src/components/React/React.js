@@ -35,7 +35,7 @@ export default function Categories() {
           </NavLink>
           <NavLink to="/components" style={{ textDecoration: "none" }}>
             <li className="category__item">
-              <p className="category__name">Components</p>
+              <p className="category__name">Lifecycle Methods</p>
             </li>
           </NavLink>
           <NavLink to="/imports-exports" style={{ textDecoration: "none" }}>
