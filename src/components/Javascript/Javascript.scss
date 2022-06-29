@@ -2,14 +2,24 @@
 @use "../../partials/mixins" as *;
 
 // background color for all componenets and pages
+body,
+html {
+  height: 100%;
+  display: grid;
 
+  background: linear-gradient(
+    30deg,
+    $bluebackground 10%,
+    $purplebackground 100%
+  );
+}
 
 .javascript {
     
   &__main-container {
     display: flex;
     justify-content: center;
-    background-color: white;
+    
 
     @include tablet {
       margin-top: 2rem;
@@ -53,7 +63,6 @@
     border-radius: 35%;
     width: $buttonsize;
     height: $buttonsize;
-    background: rgb(255, 251, 130);
     background: linear-gradient(30deg, $yellowbackground 0%, $lightyellowbackground 100%);
     color: $yellowbackground;
     font-size: 3.6em;
@@ -77,7 +86,7 @@
       1px 1px 15px 2px rgba(154, 137, 164, 0.5);
 
     text-shadow: 1px -1px 3px rgba(143, 162, 199, 1),
-      -1px 1px 3px $yellowbackground;
+      -1px 1px 3px rgb(250, 250, 143);
     outline: none;
 
     -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
@@ -92,7 +101,7 @@
         1px 1px 15px 2px rgba(154, 137, 164, 0.1);
 
       text-shadow: 3px -3px 5px rgb(178, 178, 154),
-        -3px 3px 5px rgb(251, 255, 150);
+        -3px 3px 5px rgb(191, 193, 124);
 
       -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
       -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
@@ -102,10 +111,10 @@
     &:active {
       background: linear-gradient(
         30deg,
-        rgb(147, 206, 199) 0%,
-        rgba(177, 183, 223, 1) 100%
+        $yellowbackground 10%,
+        white 100%
       );
-      color: rgb(122, 162, 157);
+      color: $yellowbackground;
 
       box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.15),
         1px 1px 15px 2px rgba(154, 137, 164, 0.1);

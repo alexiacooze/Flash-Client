@@ -1,0 +1,126 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
+// background color for all componenets and pages
+body,
+html {
+  height: 100%;
+  display: grid;
+
+  background: linear-gradient(
+    30deg,
+    $bluebackground 10%,
+    $purplebackground 100%
+  );
+}
+
+.html-css {
+  &__main-container {
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+      margin-top: 2rem;
+    }
+    @include desktop {
+      margin-top: 4rem;
+    }
+  }
+  &__item-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      justify-content: space-evenly;
+      margin: 2rem 4rem;
+    }
+  }
+  &__name {
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    // margin: auto;
+    border: none;
+    border-radius: 35%;
+    width: $buttonsize;
+    height: $buttonsize;
+    background: linear-gradient(30deg, $lightpinkbackground 10%, $lightpurple 100%);
+    color: $lightpinkbackground;
+    font-size: 3.6em;
+    font-weight: 600;
+
+    @include tablet {
+      width: 20rem;
+      height: 15rem;
+      border-radius: 10%;
+    }
+
+    @include desktop{
+      margin-bottom: 5rem;
+    }
+
+    box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.25),
+      inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+      1px 1px 15px 2px rgba(154, 137, 164, 0.5);
+
+    text-shadow: 1px -1px 3px rgba(143, 162, 199, 1),
+      -1px 1px 3px rgb(169, 130, 137);
+    outline: none;
+
+    -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
+    -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
+    transition: box-shadow 0.4s, text-shadow 0.5s;
+
+    &:hover {
+      cursor: pointer;
+
+      box-shadow: inset 0 0 35px 0px rgba(0, 0, 0, 0.15),
+        inset 0 2px 1px 1px rgba(255, 255, 255, 0),
+        1px 1px 15px 2px rgba(154, 137, 164, 0.1);
+
+      text-shadow: 3px -3px 5px rgba(143, 162, 199, 1),
+        -3px 3px 5px rgb(163, 132, 175);
+
+      -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
+      -moz-transition: box-shadow 0.4s, text-shadow 0.5s;
+      transition: box-shadow 0.4s, text-shadow 0.5s;
+    }
+
+    &:active {
+      background: linear-gradient(
+        30deg,
+        $lightpinkbackground 10%,
+        rgba(177, 183, 223, 1) 100%
+      );
+      color: rgb(255, 203, 229);
+
+      box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.15),
+        1px 1px 15px 2px rgba(154, 137, 164, 0.1);
+
+      text-shadow: 1px -1px 1px rgba(143, 162, 199, 0.75),
+        -1px 1px 1px rgb(107, 160, 154);
+
+      -webkit-transition: background 0.3s color 0.2s,
+        text-shadow 0.3s box-shadow 0.3s;
+      -moz-transition: background 0.3s color 0.2s,
+        text-shadow 0.3s box-shadow 0.3s;
+      transition: background 0.3s color 0.2s, text-shadow 0.3s box-shadow 0.3s;
+    }
+  }
+}
