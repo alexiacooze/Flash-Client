@@ -24,6 +24,20 @@ export default function Header() {
               </NavLink>
               <NavLink
                 className="header__link"
+                to="/html"
+                style={{ textDecoration: "none" }}
+              >
+                <li className="header__home">HTML + CSS</li>
+              </NavLink>
+              <NavLink
+                className="header__link"
+                to="/javascript"
+                style={{ textDecoration: "none" }}
+              >
+                <li className="header__home">Javascript</li>
+              </NavLink>
+              <NavLink
+                className="header__link"
                 to="/react"
                 style={{ textDecoration: "none" }}
               >
@@ -35,13 +49,6 @@ export default function Header() {
                 style={{ textDecoration: "none" }}
               >
                 <li className="header__contact">Contact</li>
-              </NavLink>
-              <NavLink
-                className="header__link"
-                to="/faq"
-                style={{ textDecoration: "none" }}
-              >
-                <li className="header__faq">FAQ</li>
               </NavLink>
             </ul>
           </nav>

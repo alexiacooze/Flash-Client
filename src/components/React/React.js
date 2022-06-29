@@ -33,16 +33,6 @@ export default function Categories() {
               <p className="category__name">Conditonals and Rendering</p>
             </li>
           </NavLink>
-          <NavLink to="/components" style={{ textDecoration: "none" }}>
-            <li className="category__item">
-              <p className="category__name">Lifecycle Methods</p>
-            </li>
-          </NavLink>
-          <NavLink to="/imports-exports" style={{ textDecoration: "none" }}>
-            <li className="category__item">
-              <p className="category__name">Imports and Exports</p>
-            </li>
-          </NavLink>
           <NavLink to="/api" style={{ textDecoration: "none" }}>
             <li className="category__item">
               <p className="category__name"> API's and Promises</p>

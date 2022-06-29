@@ -8,8 +8,8 @@ import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions/Freq
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Hooks from "./components/Hooks/Hooks";
-import ImportsAndExports from "./components/ImportsAndExports/ImportsAndExports";
-import LifeCycle from "./components/LifeCycle/LifeCycle";
+import HtmlCss from "./components/HtmlCss/HtmlCss";
+import Javascript from "./components/Javascript/Javascript";
 import Categories from "./components/React/React";
 import Routing from "./components/Routing/Routing";
 import Setup from "./components/Setup/Setup";
@@ -24,6 +24,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
+        <Route path="/html" element={<HtmlCss />} />
+        <Route path="/javascript" element={<Javascript />} />
         <Route path="/react" element={<Categories />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FrequentlyAskedQuestions />} />
@@ -35,8 +37,6 @@ function App() {
         <Route path="/hooks" element={<Hooks />} />
         <Route path="/routing" element={<Routing />} />
         <Route path="/conditionals" element={<Conditionals />} />
-        <Route path="/components" element={<LifeCycle />} />
-        <Route path="/imports-exports" element={<ImportsAndExports />} />
         <Route path="/api" element={<Api />} />
         <Route path="/terminal" element={<Terminal />} />
 
