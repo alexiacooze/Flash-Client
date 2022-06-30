@@ -76,6 +76,7 @@ export default function Hooks() {
                   <p>{card.flipped ? card.answer : card.questions}</p>
                 </div>
               </div>
+              {/*ternary is used to isolate the select options to only the back of the card*/}
               {card.flipped ? (
                 <div className="hooks__select-container">
                   <p
@@ -93,6 +94,7 @@ export default function Hooks() {
                     Incorrect
                   </p>
                   <p className="hooks__clear" onClick={() => answer(card.id, "clear")}>Clear</p>
+                  <p className="hooks__favorite" onClick={() => answer(card.id, "favorite")}></p>
                 </div>
               ) : (
                 ""

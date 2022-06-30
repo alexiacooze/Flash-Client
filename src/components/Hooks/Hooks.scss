@@ -8,7 +8,7 @@
     @include desktop {
       display: flex;
       flex-wrap: wrap;
-      margin-left: 4.5rem;
+      justify-content: space-evenly;
       padding: 1rem;
     }
   }
@@ -58,7 +58,7 @@
   }
 
   &__select-container {
-    padding-left: 1rem;
+    // padding-left: rem;
   }
 
   &__correct {
