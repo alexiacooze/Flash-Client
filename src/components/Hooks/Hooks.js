@@ -52,6 +52,11 @@ export default function Hooks() {
                 key={card.id}
               >
                 <p>{card.flipped ? card.answer : card.questions}</p>
+                
+              <div className="hooks__select-container">
+                <p className="hooks__correct">Correct</p>
+                <p className="hooks__incorrect">Incorrect</p>
+              </div>
               </div>
             </div>
           );

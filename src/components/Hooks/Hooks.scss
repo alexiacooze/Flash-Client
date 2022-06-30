@@ -56,4 +56,23 @@
     --rotate-y: 180deg;
     transform: scaleX(-1);
   }
+
+  &__select-container {
+    padding-left: 1rem;
+  }
+
+  &__correct {
+    background-color: rgb(194, 255, 194);
+    border-radius: 1rem;
+    padding: .2rem .5rem;
+    text-align: center;
+
+  }
+
+  &__incorrect {
+    background-color: rgb(255, 147, 147);
+    border-radius: 1rem;
+    padding: .2rem .5rem;
+    text-align: center;
+  }
 }
