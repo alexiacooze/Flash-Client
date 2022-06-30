@@ -67,20 +67,10 @@ export default function Hooks() {
               >
                 <div
                   onClick={() => flip(card.id)}
-                  // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background
-                  className={`hooks__card 
-                  
-                  
-                  ${
-                    card.correct
-                      ? card.correct === "correct"
-                        ? "hooks__correct-background"
-                        : "hooks__incorrect-background"
-                      : ""
-                  }
-
-                  
-                  `}
+                  // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
+                  className={`hooks__card ${card.correct ? card.correct === "correct" ? "hooks__correct-background"
+                  : "hooks__incorrect-background"
+                  : ""}  ${card.correct ? card.correct === "clear" ? "hooks__clear-background" : "" : ""} `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -102,6 +92,7 @@ export default function Hooks() {
                   >
                     Incorrect
                   </p>
+                  <p className="hooks__clear" onClick={() => answer(card.id, "clear")}>Clear</p>
                 </div>
               ) : (
                 ""
