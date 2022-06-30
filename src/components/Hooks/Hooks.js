@@ -26,9 +26,23 @@ export default function Hooks() {
 
     filterFlipped.push(updatedFilterId);
     filterFlipped.sort((a, b) => (a.id > b.id ? 1 : -1));
-
     setFlipCard(filterFlipped);
   };
+
+
+
+  const [colorRed, setColorRed] = useState(false);
+
+  const handleClick = e => {
+    setColorRed(current => !current);
+  };
+
+  const [colorGreen, setColorGreen] = useState(false);
+
+  const handleChange = e => {
+    setColorGreen(current => !current);
+  };
+
 
   return (
     <section className="hooks">
@@ -48,14 +62,15 @@ export default function Hooks() {
             >
               <div
                 onClick={() => flip(card.id)}
-                className="hooks__card"
+                
+                className={`hooks__card ${colorRed ? 'hooks__incorrect-background' : ''} ${colorGreen ? 'hooks__correct-background' : ''}`}
                 key={card.id}
               >
                 <p>{card.flipped ? card.answer : card.questions}</p>
                 
               <div className="hooks__select-container">
-                <p className="hooks__correct">Correct</p>
-                <p className="hooks__incorrect">Incorrect</p>
+                <p  className="hooks__correct" onClick={handleChange}>Correct</p>
+                <p className="hooks__incorrect" onClick={handleClick}>Incorrect</p>
               </div>
               </div>
             </div>

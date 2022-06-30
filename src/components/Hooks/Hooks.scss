@@ -64,15 +64,37 @@
   &__correct {
     background-color: rgb(194, 255, 194);
     border-radius: 1rem;
-    padding: .2rem .5rem;
+    font-weight: bold;
+    padding: .2rem .7rem;
     text-align: center;
 
+  }
+
+  &__correct:hover {
+    background-color: rgb(155, 244, 155);
+    
+  }
+
+  &__incorrect:hover {
+    background-color: rgb(254, 115, 115);
+    
   }
 
   &__incorrect {
     background-color: rgb(255, 147, 147);
     border-radius: 1rem;
-    padding: .2rem .5rem;
+    font-weight: bold;
+    padding: .2rem .7rem;
     text-align: center;
+  }
+  
+  &__incorrect-background {
+    background-color: rgb(255, 147, 147);
+    
+  }
+
+  &__correct-background {
+    background-color: rgb(155, 244, 155);;
+    
   }
 }
