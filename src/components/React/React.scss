@@ -2,17 +2,17 @@
 @use "../../partials/mixins" as *;
 
 // background color for all componenets and pages
-body,
-html {
-  height: 100%;
-  display: grid;
+// body,
+// html {
+//   height: 100%;
+//   display: grid;
 
-  background: linear-gradient(
-    30deg,
-    $bluebackground 10%,
-    $purplebackground 100%
-  );
-}
+//   background: linear-gradient(
+//     30deg,
+//     $bluebackground 0%,
+//     $purplebackground 100%
+//   );
+// }
 
 .category {
   &__main-container {
@@ -62,7 +62,7 @@ html {
     height: $buttonsize;
     background: rgb(184, 241, 234);
     background: linear-gradient(30deg, $lightblue 0%, $lightpurple 100%);
-    color: rgb(191, 238, 233);
+    color: white;
     font-size: 3.6em;
     font-weight: 600;
 
@@ -80,8 +80,8 @@ html {
       inset 0 2px 1px 1px rgba(255, 255, 255, 0),
       1px 1px 15px 2px rgba(154, 137, 164, 0.5);
 
-    text-shadow: 1px -1px 3px rgba(143, 162, 199, 1),
-      -1px 1px 3px rgb(97, 176, 170);
+    text-shadow: 1px -1px 3px rgb(175, 184, 202),
+      -1px 1px 3px rgb(77, 5, 210);
     outline: none;
 
     -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
@@ -95,8 +95,8 @@ html {
         inset 0 2px 1px 1px rgba(255, 255, 255, 0),
         1px 1px 15px 2px rgba(154, 137, 164, 0.1);
 
-      text-shadow: 3px -3px 5px rgba(143, 162, 199, 1),
-        -3px 3px 5px rgb(145, 192, 186);
+      text-shadow: 3px -3px 5px rgb(138, 140, 145),
+        -3px 3px 5px rgb(91, 121, 117);
 
       -webkit-transition: box-shadow 0.4s, text-shadow 0.5s;
       -moz-transition: box-shadow 0.4s, text-shadow 0.5s;

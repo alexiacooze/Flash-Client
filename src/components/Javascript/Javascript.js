@@ -30,7 +30,7 @@ export default function Javascript() {
           </NavLink>
           <NavLink to="/conditionals" style={{ textDecoration: "none" }}>
             <li className="javascript__item">
-              <p className="javascript__name">Conditonals and Rendering</p>
+              <p className="javascript__name">Conditionals and Rendering</p>
             </li>
           </NavLink>
           <NavLink to="/api" style={{ textDecoration: "none" }}>

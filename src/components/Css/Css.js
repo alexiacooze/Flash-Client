@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { CATEGORIES_API } from "../../utils/appConfig";
-import "../Hooks/Hooks.scss";
+import "../Css/Css.scss";
 import back from "../../assets/Images/back.png";
 import { NavLink } from "react-router-dom";
 
 // this is the first component that was worked on, hence the commenting only on this component
-export default function Hooks() {
+export default function Css() {
   // creating state for the flashcard toggle and calling the API
 
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("hooks").then((res) => setFlipCard(res.data));
+    CATEGORIES_API.getAll("css").then((res) => setFlipCard(res.data));
     // console.log(res);
   }, []);
 
@@ -53,37 +53,37 @@ export default function Hooks() {
 
 
   return (
-    <section className="hooks">
-      <div className="hooks__top">
-        <div className="hooks__back-divider">
+    <section className="css">
+      <div className="css__top">
+        <div className="css__back-divider">
           <NavLink to="/react">
-            <img className="hooks__back" src={back} alt="Back Arrow" />
+            <img className="css__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
       </div>
 
-      <div className="hooks__card-divider">
+      <div className="css__card-divider">
         {flashcards.map((card) => {
           return (
             <>
               <div
-                className={`hooks__card-container ${
-                  card.flipped ? "hooks__flip-card" : ""
+                className={`css__card-container ${
+                  card.flipped ? "css__flip-card" : ""
                 } `}
               >
                 <div
                   onClick={() => flip(card.id)}
                   // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
-                  className={`hooks__card ${
+                  className={`css__card ${
                     card.correct
                       ? card.correct === "correct"
-                        ? "hooks__correct-background"
-                        : "hooks__incorrect-background"
+                        ? "css__correct-background"
+                        : "css__incorrect-background"
                       : ""
                   }  ${
                     card.correct
                       ? card.correct === "clear"
-                        ? "hooks__clear-background"
+                        ? "css__clear-background"
                         : ""
                       : ""
                   } `}
@@ -94,29 +94,29 @@ export default function Hooks() {
               </div>
               {/*ternary is used to isolate the select options to only the back of the card*/}
               {card.flipped ? (
-                <div className="hooks__select-container">
+                <div className="css__select-container">
                   <p
-                    className="hooks__correct"
+                    className="css__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => answer(card.id, "correct")}
                   >
                     Correct
                   </p>
                   <p
-                    className="hooks__incorrect"
+                    className="css__incorrect"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
                     onClick={() => answer(card.id, "incorrect")}
                   >
                     Incorrect
                   </p>
                   <p
-                    className="hooks__clear"
+                    className="css__clear"
                     onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>
                   <p
-                    className="hooks__favorite"
+                    className="css__favorite"
                     onClick={() => answer(card.id, "favorite")}
                   ></p>
                 </div>
