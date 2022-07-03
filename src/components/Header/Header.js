@@ -43,13 +43,6 @@ export default function Header() {
               >
                 <li className="header__react">React</li>
               </NavLink>
-              <NavLink
-                className="header__link"
-                to="/contact"
-                style={{ textDecoration: "none" }}
-              >
-                <li className="header__contact">Contact</li>
-              </NavLink>
             </ul>
           </nav>
         </div>

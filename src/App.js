@@ -4,7 +4,6 @@ import "./App.scss";
 import Advanced from "./components/Advanced/Advanced";
 import Api from "./components/Api/Api";
 import Conditionals from "./components/Conditionals/Conditionals";
-import Contact from "./components/Contact/Contact";
 import Css from "./components/Css/Css";
 import DomManipulation from "./components/DomManipulation/DomManipulation";
 import ElementsAttributes from "./components/ElementsAttributes/ElementsAttributes";
@@ -35,7 +34,6 @@ function App() {
         <Route path="/html" element={<HtmlCss />} />
         <Route path="/javascript" element={<Javascript />} />
         <Route path="/react" element={<Categories />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/setup" element={<Setup />} />
         <Route path="/state-props" element={<StateAndProps />} />
         <Route path="/hooks" element={<Hooks />} />

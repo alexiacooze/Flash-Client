@@ -53,37 +53,37 @@ export default function JsAdvanced() {
 
 
   return (
-    <section className="hooks">
-      <div className="hooks__top">
-        <div className="hooks__back-divider">
+    <section className="js-advanced">
+      <div className="js-advanced__top">
+        <div className="js-advanced__back-divider">
           <NavLink to="/javascript">
-            <img className="hooks__back" src={back} alt="Back Arrow" />
+            <img className="js-advanced__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
       </div>
 
-      <div className="hooks__card-divider">
+      <div className="js-advanced__card-divider">
         {flashcards.map((card) => {
           return (
             <>
               <div
-                className={`hooks__card-container ${
-                  card.flipped ? "hooks__flip-card" : ""
+                className={`js-advanced__card-container ${
+                  card.flipped ? "js-advanced__flip-card" : ""
                 } `}
               >
                 <div
                   onClick={() => flip(card.id)}
                   // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
-                  className={`hooks__card ${
+                  className={`js-advanced__card ${
                     card.correct
                       ? card.correct === "correct"
-                        ? "hooks__correct-background"
-                        : "hooks__incorrect-background"
+                        ? "js-advanced__correct-background"
+                        : "js-advanced__incorrect-background"
                       : ""
                   }  ${
                     card.correct
                       ? card.correct === "clear"
-                        ? "hooks__clear-background"
+                        ? "js-advanced__clear-background"
                         : ""
                       : ""
                   } `}
@@ -94,7 +94,7 @@ export default function JsAdvanced() {
               </div>
               {/*ternary is used to isolate the select options to only the back of the card*/}
               {card.flipped ? (
-                <div className="hooks__select-container">
+                <div className="js-advanced__select-container">
                   <p
                     className="hooks__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"

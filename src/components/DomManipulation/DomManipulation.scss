@@ -2,8 +2,6 @@
 @use "../../partials/mixins" as *;
 
 .dom {
-  background-color: #dcdcdc;
-
   &__top {
     display: flex;
     justify-content: space-between;
@@ -16,6 +14,8 @@
   }
 
   &__card-divider {
+    background-color: rgb(8, 8, 57);
+
     @include desktop {
       display: flex;
       flex-wrap: wrap;
@@ -29,7 +29,7 @@
     margin: 1rem;
     display: inline;
     @include desktop {
-      margin: 2rem;
+      
     }
   }
 
@@ -39,6 +39,7 @@
 
     @include desktop {
       flex-direction: row;
+      padding-top:1rem;
     }
   }
 
@@ -76,51 +77,43 @@
     background-color: rgb(194, 255, 194);
     border-radius: 1rem;
     font-weight: bold;
-    padding: .2rem .7rem;
+    padding: 0.2rem 0.7rem;
     text-align: center;
-
   }
 
   &__incorrect {
     background-color: rgb(255, 147, 147);
     border-radius: 1rem;
     font-weight: bold;
-    padding: .2rem .7rem;
+    padding: 0.2rem 0.7rem;
     text-align: center;
   }
-  
+
   &__clear {
     background-color: white;
     border-radius: 1rem;
     font-weight: bold;
-    padding: .2rem .7rem;
+    padding: 0.2rem 0.7rem;
     text-align: center;
   }
 
   &__correct:hover {
     background-color: rgb(155, 244, 155);
-    
   }
 
   &__incorrect:hover {
     background-color: rgb(254, 115, 115);
-    
   }
 
   &__incorrect-background {
     background-color: rgb(255, 202, 202);
-    
   }
 
   &__correct-background {
     background-color: rgb(199, 245, 199);
-    
   }
 
   &__clear-background {
     background-color: white;
-    
   }
-
-
 }
