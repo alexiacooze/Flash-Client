@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 2rem;
+  
    
 
     @include tablet {
@@ -74,9 +75,10 @@
     // border-radius: 35%;
     width: $buttonsize;
     height: $buttonsize;
-    color:  rgb(129, 104, 83);
+    color:  white;
     font-size: 3.6em;
-    border: 1px solid rgb(171, 118, 88);
+    border: 2px solid rgb(14, 24, 78);
+    background-color: rgb(14, 24, 78);
 
     @include tablet {
       width: 20rem;
