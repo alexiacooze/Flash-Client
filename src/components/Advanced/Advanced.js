@@ -56,7 +56,7 @@ export default function Advanced() {
     <section className="advanced">
       <div className="advanced__top">
         <div className="advanced__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="advanced__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

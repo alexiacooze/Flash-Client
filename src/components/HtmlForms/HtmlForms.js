@@ -56,7 +56,7 @@ export default function HtmlForms() {
     <section className="forms">
       <div className="forms__top">
         <div className="forms__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="forms__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

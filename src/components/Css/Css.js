@@ -56,7 +56,7 @@ export default function Css() {
     <section className="css">
       <div className="css__top">
         <div className="css__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="css__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

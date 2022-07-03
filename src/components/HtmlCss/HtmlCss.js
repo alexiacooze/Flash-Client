@@ -24,7 +24,7 @@ export default function HtmlCss() {
           </NavLink>
           <NavLink to="/advanced" style={{ textDecoration: "none" }}>
             <li className="html-css__item">
-              <p className="html-css__name">HTML advanced</p>
+              <p className="html-css__name">HTML Advanced</p>
             </li>
           </NavLink>
           <NavLink to="/css" style={{ textDecoration: "none" }}>

@@ -56,7 +56,7 @@ export default function HtmlBasics() {
     <section className="html-basics">
       <div className="html-basics__top">
         <div className="html-basics__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="html-basics__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

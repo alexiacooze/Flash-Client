@@ -56,7 +56,7 @@ export default function Responsive() {
     <section className="responsive">
       <div className="responsive__top">
         <div className="responsive__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="responsive__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

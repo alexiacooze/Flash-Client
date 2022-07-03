@@ -56,7 +56,7 @@ export default function Sass() {
     <section className="scss">
       <div className="scss__top">
         <div className="scss__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="scss__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

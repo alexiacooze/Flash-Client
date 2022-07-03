@@ -56,7 +56,7 @@ export default function ElementsAttributes() {
     <section className="elements-attributes">
       <div className="elements-attributes__top">
         <div className="elements-attributes__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="elements-attributes__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

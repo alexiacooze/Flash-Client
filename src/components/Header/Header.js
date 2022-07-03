@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
 import "../Header/Header.scss";
-import logo from "../../assets/Images/logo.jpg";
+import logo from "../../assets/Images/FLASH.png";
 
 export default function Header() {
   return (
@@ -27,14 +27,14 @@ export default function Header() {
                 to="/html"
                 style={{ textDecoration: "none" }}
               >
-                <li className="header__home">HTML + CSS</li>
+                <li className="header__html">HTML + CSS</li>
               </NavLink>
               <NavLink
                 className="header__link"
                 to="/javascript"
                 style={{ textDecoration: "none" }}
               >
-                <li className="header__home">Javascript</li>
+                <li className="header__javascript">Javascript</li>
               </NavLink>
               <NavLink
                 className="header__link"

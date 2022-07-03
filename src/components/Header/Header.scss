@@ -9,7 +9,6 @@
     border-bottom: solid 2px rgb(232, 229, 255);
     @include tablet {
       padding: 1rem;
-
     }
 
     @include desktop {
@@ -19,8 +18,10 @@
   }
 
   &__logo {
-    width: 2rem;
-    border-radius: 50%;
+    width: 7rem;
+    @include desktop {
+      margin: 1rem 0rem 0rem 2rem;
+    }
   }
 
   &__nav-container {
@@ -29,11 +30,23 @@
   &__menu {
     list-style-type: none;
     display: flex;
-
-   
   }
 
   &__home {
+    margin-right: 0.5rem;
+    @include desktop {
+      margin-right: 2rem;
+    }
+  }
+
+  &__html {
+    margin-right: 0.5rem;
+    @include desktop {
+      margin-right: 2rem;
+    }
+  }
+
+  &__javascript {
     margin-right: 0.5rem;
     @include desktop {
       margin-right: 2rem;
@@ -54,16 +67,30 @@
     }
   }
 
-  &__faq {
-    margin-right: 0.5rem;
-    @include desktop {
-      margin-right: 2rem;
-    }
-  }
-
   &__link {
     color: rgba(0, 0, 0, 0.631);
-    font-weight: bold;
-    font-family: fantasy;
+    font-size: 1.2rem;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+
+  &__home:hover {
+    border-bottom: 1px black solid;
+  }
+
+  &__html:hover {
+    border-bottom: 1px black solid;
+  }
+
+  &__javascript:hover {
+    border-bottom: 1px black solid;
+  }
+
+  &__react:hover {
+    border-bottom: 1px black solid;
+  }
+
+  &__contact:hover {
+    border-bottom: 1px black solid;
   }
 }
