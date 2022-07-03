@@ -8,39 +8,24 @@ export default function Javascript() {
       
       <div className="javascript__main-container">
         <ul className="javascript__item-container">
-          <NavLink to="/setup" style={{ textDecoration: "none" }}>
+          <NavLink to="/js-basic" style={{ textDecoration: "none" }}>
             <li className="javascript__item ">
-              <p className="javascript__name">React Setup</p>
+              <p className="javascript__name">Basic Javascript</p>
             </li>
           </NavLink>
-          <NavLink to="/state-props" style={{ textDecoration: "none" }}>
+          <NavLink to="/dom" style={{ textDecoration: "none" }}>
             <li className="javascript__item">
-              <p className="javascript__name">State and Props</p>
+              <p className="javascript__name">DOM Manipulation</p>
             </li>
           </NavLink>
-          <NavLink to="/hooks" style={{ textDecoration: "none" }}>
+          <NavLink to="/es6" style={{ textDecoration: "none" }}>
             <li className="javascript__item">
-              <p className="javascript__name">Hooks</p>
+              <p className="javascript__name">ES6+</p>
             </li>
           </NavLink>
-          <NavLink to="/routing" style={{ textDecoration: "none" }}>
+          <NavLink to="/js-advanced" style={{ textDecoration: "none" }}>
             <li className="javascript__item">
-              <p className="javascript__name">Routing</p>
-            </li>
-          </NavLink>
-          <NavLink to="/conditionals" style={{ textDecoration: "none" }}>
-            <li className="javascript__item">
-              <p className="javascript__name">Conditionals and Rendering</p>
-            </li>
-          </NavLink>
-          <NavLink to="/api" style={{ textDecoration: "none" }}>
-            <li className="javascript__item">
-              <p className="javascript__name"> API's and Promises</p>
-            </li>
-          </NavLink>
-          <NavLink to="/terminal" style={{ textDecoration: "none" }}>
-            <li className="javascript__item">
-              <p className="javascript__name">Terminal and Git</p>
+              <p className="javascript__name">Advanced Javascript</p>
             </li>
           </NavLink>
         </ul>

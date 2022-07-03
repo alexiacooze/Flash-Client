@@ -6,7 +6,9 @@ import Api from "./components/Api/Api";
 import Conditionals from "./components/Conditionals/Conditionals";
 import Contact from "./components/Contact/Contact";
 import Css from "./components/Css/Css";
+import DomManipulation from "./components/DomManipulation/DomManipulation";
 import ElementsAttributes from "./components/ElementsAttributes/ElementsAttributes";
+import Es6 from "./components/Es6/Es6";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Hooks from "./components/Hooks/Hooks";
@@ -14,9 +16,12 @@ import HtmlBasics from "./components/HtmlBasics/HtmlBasics";
 import HtmlCss from "./components/HtmlCss/HtmlCss";
 import HtmlForms from "./components/HtmlForms/HtmlForms";
 import Javascript from "./components/Javascript/Javascript";
+import JsAdvanced from "./components/JsAdvanced/JsAdvanced";
+import JsBasic from "./components/JsBasic/JsBasic";
 import Categories from "./components/React/React";
 import Responsive from "./components/Responsive/Responsive";
 import Routing from "./components/Routing/Routing";
+import Scss from "./components/Scss/Scss";
 import Setup from "./components/Setup/Setup";
 import StateAndProps from "./components/StateandProps/StateAndProps";
 import Terminal from "./components/Terminal/Terminal";
@@ -44,7 +49,11 @@ function App() {
         <Route path="/advanced" element={<Advanced />} />
         <Route path="/css" element={<Css />} />
         <Route path="/responsive-design" element={<Responsive />} />
-        {/* <Route path="/scss" element={</>} />  */}
+        <Route path="/sass" element={<Scss/>} /> 
+        <Route path="/js-basic" element={<JsBasic/>} /> 
+        <Route path="/dom" element={<DomManipulation/>} /> 
+        <Route path="/es6" element={<Es6/>} /> 
+        <Route path="/js-advanced" element={<JsAdvanced/>} /> 
       </Routes>
     </BrowserRouter>
   );
