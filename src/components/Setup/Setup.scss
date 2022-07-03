@@ -2,7 +2,7 @@
 @use "../../partials/mixins" as *;
 
 .setup {
-  background-color: #dcdcdc;
+  background-color: rgb(232, 220, 210);
 
   &__card-divider {
     @include desktop {
