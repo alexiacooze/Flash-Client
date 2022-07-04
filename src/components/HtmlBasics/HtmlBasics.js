@@ -68,6 +68,19 @@ export default function HtmlBasics() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0)
+
+
+  const total = () => {
+  setCount( prevCount => prevCount + 1)
+  } 
+  
+  const decreaseTotal = () => {
+    setCount (prevCount => prevCount - 1)
+  }
+
+
   return (
     <section className="html-basics">
       <div className="html-basics__top">
@@ -75,6 +88,9 @@ export default function HtmlBasics() {
           <NavLink to="/html">
             <img className="html-basics__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div>
+          {count}
         </div>
         <div className="html-basics__button-divider">
           <div className="html-basics__floor-container">
@@ -137,9 +153,9 @@ export default function HtmlBasics() {
               {card.flipped ? (
                 <div className="html-basics__select-container">
                   <p
-                    className="html-basics__correct"
+                    className="html-basics__correct" 
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => { answer(card.id, "correct"); total()}} 
                   >
                     Correct
                   </p>
@@ -152,7 +168,7 @@ export default function HtmlBasics() {
                   </p>
                   <p
                     className="html-basics__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    onClick={() => {answer(card.id, "clear"); decreaseTotal()}}
                   >
                     Clear
                   </p>
