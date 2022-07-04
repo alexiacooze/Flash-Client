@@ -11,7 +11,7 @@ export default function Home() {
         </div>
         <div>
           <p className="home__slogan">Learn Anytime, Anywhere.</p>
-          <p className="home__intro-paragraph">        Pre-generated que-card styled quiz's, to help during life's busy moments. {" "}
+          <p className="home__intro-paragraph"> Pre-generated que-card styled quizzes, to help during life's busy moments.{" "}
           </p>
         </div>
       </div>

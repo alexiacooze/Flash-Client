@@ -7,11 +7,7 @@
     justify-content: space-between;
   }
 
-  &__remove-correct {
-    @include desktop {
-      margin: 2rem;
-    }
-  }
+ 
 
   &__card-divider {
     background-color: rgb(8, 8, 57);
@@ -178,6 +174,16 @@
     font-weight: bold;
     padding: 0.2rem 0.7rem;
     text-align: center;
+  }
+
+  &__remove {
+    @include desktop {
+      background-color: white;
+      border-radius: 1rem;
+      font-weight: bold;
+      padding: 0.2rem 0.7rem;
+      text-align: center;
+    }
   }
 
   &__correct:hover {

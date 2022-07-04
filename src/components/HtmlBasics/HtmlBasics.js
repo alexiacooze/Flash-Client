@@ -153,7 +153,15 @@ export default function HtmlBasics() {
                         ? "html-basics__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "html-basics__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -166,11 +174,17 @@ export default function HtmlBasics() {
                     className="html-basics__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct");
-                      total();
+                      answer(card.id, "correct"); total() 
                     }}
                   >
                     Correct
+                  </p>
+                  <p
+                    className="html-basics__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
                   </p>
                   <p
                     className="html-basics__incorrect"
@@ -181,10 +195,8 @@ export default function HtmlBasics() {
                   </p>
                   <p
                     className="html-basics__clear"
-                    onClick={() => {
-                      answer(card.id, "clear");
-                      decreaseTotal();
-                    }}
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
