@@ -51,6 +51,22 @@ export default function JsBasic() {
     setFlipCard(filterFlipped);
   };
 
+  // creating a function for the stopwatch
+  const [timer, setTimer] = useState(0);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    let timeChange = null;
+
+    if (active) {
+      timeChange = setInterval(() => {
+        setTimer((prevTimer) => prevTimer + 10);
+      }, 10);
+    } else {
+      clearInterval(timeChange);
+    }
+    return () => clearInterval(timeChange);
+  }, [active]);
 
   return (
     <section className="basic-js">
@@ -59,6 +75,40 @@ export default function JsBasic() {
           <NavLink to="/javascript">
             <img className="basic-js__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="basic-js__button-divider">
+          <div className="basic-js__floor-container">
+            <span className="basic-js__floor-1">
+              {" "}
+              {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
+            </span>
+            <span className="basic-js__floor-2">
+              {" "}
+              {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
+            </span>
+            <span className="basic-js__floor-3">
+              {" "}
+              {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
+            </span>
+          </div>
+          <button
+            onClick={() => setActive(true)}
+            className="basic-js__start-button"
+          >
+            Start
+          </button>
+          <button
+            onClick={() => setActive(false)}
+            className="basic-js__stop-button"
+          >
+            Stop
+          </button>
+          <button
+            onClick={() => setTimer(0)}
+            className="basic-js__reset-button"
+          >
+            Reset
+          </button>
         </div>
       </div>
 

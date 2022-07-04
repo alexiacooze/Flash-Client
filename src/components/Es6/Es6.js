@@ -51,6 +51,22 @@ export default function Es6() {
     setFlipCard(filterFlipped);
   };
 
+  // creating a function for the stopwatch
+  const [timer, setTimer] = useState(0);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    let timeChange = null;
+
+    if (active) {
+      timeChange = setInterval(() => {
+        setTimer((prevTimer) => prevTimer + 10);
+      }, 10);
+    } else {
+      clearInterval(timeChange);
+    }
+    return () => clearInterval(timeChange);
+  }, [active]);
 
   return (
     <section className="es6">
@@ -59,6 +75,31 @@ export default function Es6() {
           <NavLink to="/javascript">
             <img className="es6__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="es6__button-divider">
+          <div className="es6__floor-container">
+            <span className="es6__floor-1">
+              {" "}
+              {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
+            </span>
+            <span className="es6__floor-2">
+              {" "}
+              {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
+            </span>
+            <span className="es6__floor-3">
+              {" "}
+              {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
+            </span>
+          </div>
+          <button onClick={() => setActive(true)} className="es6__start-button">
+            Start
+          </button>
+          <button onClick={() => setActive(false)} className="es6__stop-button">
+            Stop
+          </button>
+          <button onClick={() => setTimer(0)} className="es6__reset-button">
+            Reset
+          </button>
         </div>
       </div>
 
