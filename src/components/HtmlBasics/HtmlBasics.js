@@ -69,17 +69,15 @@ export default function HtmlBasics() {
   }, [active]);
 
   // creating a function to track the correct answers
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
 
   const total = () => {
-  setCount( prevCount => prevCount + 1)
-  } 
-  
-  const decreaseTotal = () => {
-    setCount (prevCount => prevCount - 1)
-  }
+    setCount((prevCount) => prevCount + 1);
+  };
 
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
 
   return (
     <section className="html-basics">
@@ -89,14 +87,26 @@ export default function HtmlBasics() {
             <img className="html-basics__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
-        <div>
-          {count}
+        <div className="html-basics__count-container">
+          <p className="html-basics__count-display">
+            <span className="html-basics__correct-modifier">Correct:</span>{" "}
+            <span className="html-basics__number-modifier">{count >= 0 ? count : false}</span>/28
+          </p>
         </div>
         <div className="html-basics__button-divider">
           <div className="html-basics__floor-container">
-            <span className="html-basics__floor-1"> {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:</span>
-            <span className="html-basics__floor-2"> {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:</span>
-            <span className="html-basics__floor-3"> {("0" + Math.floor((timer / 10) % 100)).slice(-2)}</span>
+            <span className="html-basics__floor-1">
+              {" "}
+              {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
+            </span>
+            <span className="html-basics__floor-2">
+              {" "}
+              {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
+            </span>
+            <span className="html-basics__floor-3">
+              {" "}
+              {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
+            </span>
           </div>
           <button
             onClick={() => setActive(true)}
@@ -153,9 +163,12 @@ export default function HtmlBasics() {
               {card.flipped ? (
                 <div className="html-basics__select-container">
                   <p
-                    className="html-basics__correct" 
+                    className="html-basics__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => { answer(card.id, "correct"); total()}} 
+                    onClick={() => {
+                      answer(card.id, "correct");
+                      total();
+                    }}
                   >
                     Correct
                   </p>
@@ -168,7 +181,10 @@ export default function HtmlBasics() {
                   </p>
                   <p
                     className="html-basics__clear"
-                    onClick={() => {answer(card.id, "clear"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "clear");
+                      decreaseTotal();
+                    }}
                   >
                     Clear
                   </p>
