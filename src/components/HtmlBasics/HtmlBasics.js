@@ -51,6 +51,22 @@ export default function HtmlBasics() {
     setFlipCard(filterFlipped);
   };
 
+  // creating a function for the stopwatch
+  const [timer, setTimer] = useState(0);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    let timeChange = null;
+
+    if (active) {
+      timeChange = setInterval(() => {
+        setTimer((prevTimer) => prevTimer + 10);
+      }, 10);
+    } else {
+      clearInterval(timeChange);
+    }
+    return () => clearInterval(timeChange);
+  }, [active]);
 
   return (
     <section className="html-basics">
@@ -59,6 +75,37 @@ export default function HtmlBasics() {
           <NavLink to="/html">
             <img className="html-basics__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="html-basics__button-divider">
+          <div className="html-basics__floor-container">
+            <span> {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:</span>
+            <span> {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:</span>
+            <span> {("0" + Math.floor((timer / 10) % 100)).slice(-2)}</span>
+          </div>
+          <button
+            onClick={() => setActive(true)}
+            className="html-basics__start-button"
+          >
+            Start
+          </button>
+          <button
+            onClick={() => setActive(false)}
+            className="html-basics__stop-button"
+          >
+            Stop
+          </button>
+          <button
+            onClick={() => setActive(true)}
+            className="html-basics__resume-button"
+          >
+            Resume
+          </button>
+          <button
+            onClick={() => setTimer(0)}
+            className="html-basics__reset-button"
+          >
+            Reset
+          </button>
         </div>
       </div>
 
