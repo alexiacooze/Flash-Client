@@ -11,9 +11,7 @@ export default function ElementsAttributes() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("elements-attributes").then((res) =>
-      setFlipCard(res.data)
-    );
+    CATEGORIES_API.getAll("elements-attributes").then((res) => setFlipCard(res.data));
     // console.log(res);
   }, []);
 
@@ -70,79 +68,100 @@ export default function ElementsAttributes() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
-    <section className="elements-attributes">
-      <div className="elements-attributes__top">
-        <div className="elements-attributes__back-divider">
+    <section className="elements">
+      <div className="elements__top">
+        <div className="elements__back-divider">
           <NavLink to="/html">
-            <img
-              className="elements-attributes__back"
-              src={back}
-              alt="Back Arrow"
-            />
+            <img className="elements__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
-        <div className="elements-attributes__button-divider">
-          <div className="elements-attributes__floor-container">
-            <span className="elements-attributes__floor-1">
+        <div className="elements__count-container">
+          <p className="elements__count-display">
+            <span className="elements__correct-modifier">Correct:</span>{" "}
+            <span className="elements__number-modifier">{count >= 0 ? count : false}</span>/30
+          </p>
+        </div>
+        <div className="elements__button-divider">
+          <div className="elements__floor-container">
+            <span className="elements__floor-1">
               {" "}
               {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
             </span>
-            <span className="elements-attributes__floor-2">
+            <span className="elements__floor-2">
               {" "}
               {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
             </span>
-            <span className="elements-attributes__floor-3">
+            <span className="elements__floor-3">
               {" "}
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
           <button
             onClick={() => setActive(true)}
-            className="elements-attributes__start-button"
+            className="elements__start-button"
           >
             Start
           </button>
           <button
             onClick={() => setActive(false)}
-            className="elements-attributes__stop-button"
+            className="elements__stop-button"
           >
             Stop
           </button>
           <button
             onClick={() => setTimer(0)}
-            className="elements-attributes__reset-button"
+            className="elements__reset-button"
           >
             Reset
           </button>
         </div>
       </div>
 
-      <div className="elements-attributes__card-divider">
+      <div className="elements__card-divider">
         {flashcards.map((card) => {
           return (
             <>
               <div
-                className={`elements-attributes__card-container ${
-                  card.flipped ? "elements-attributes__flip-card" : ""
+                className={`elements__card-container ${
+                  card.flipped ? "elements__flip-card" : ""
                 } `}
               >
                 <div
                   onClick={() => flip(card.id)}
                   // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
-                  className={`elements-attributes__card ${
+                  className={`elements__card ${
                     card.correct
                       ? card.correct === "correct"
-                        ? "elements-attributes__correct-background"
-                        : "elements-attributes__incorrect-background"
+                        ? "elements__correct-background"
+                        : "elements__incorrect-background"
                       : ""
                   }  ${
                     card.correct
                       ? card.correct === "clear"
-                        ? "elements-attributes__clear-background"
+                        ? "elements__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "elements__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -150,29 +169,39 @@ export default function ElementsAttributes() {
               </div>
               {/*ternary is used to isolate the select options to only the back of the card*/}
               {card.flipped ? (
-                <div className="elements-attributes__select-container">
+                <div className="elements__select-container">
                   <p
-                    className="elements-attributes__correct"
+                    className="elements__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
                   </p>
                   <p
-                    className="elements-attributes__incorrect"
+                    className="elements__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
+                  </p>
+                  <p
+                    className="elements__incorrect"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
                     onClick={() => answer(card.id, "incorrect")}
                   >
                     Incorrect
                   </p>
                   <p
-                    className="elements-attributes__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    className="elements__clear"
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
                   <p
-                    className="elements-attributes__favorite"
+                    className="elements__favorite"
                     onClick={() => answer(card.id, "favorite")}
                   ></p>
                 </div>

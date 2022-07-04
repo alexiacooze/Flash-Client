@@ -68,13 +68,30 @@ export default function DomManipulation() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="dom">
       <div className="dom__top">
         <div className="dom__back-divider">
-          <NavLink to="/javascript">
+          <NavLink to="/html">
             <img className="dom__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="dom__count-container">
+          <p className="dom__count-display">
+            <span className="dom__correct-modifier">Correct:</span>{" "}
+            <span className="dom__number-modifier">{count >= 0 ? count : false}</span>/13
+          </p>
         </div>
         <div className="dom__button-divider">
           <div className="dom__floor-container">
@@ -91,13 +108,22 @@ export default function DomManipulation() {
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
-          <button onClick={() => setActive(true)} className="dom__start-button">
+          <button
+            onClick={() => setActive(true)}
+            className="dom__start-button"
+          >
             Start
           </button>
-          <button onClick={() => setActive(false)} className="dom__stop-button">
+          <button
+            onClick={() => setActive(false)}
+            className="dom__stop-button"
+          >
             Stop
           </button>
-          <button onClick={() => setTimer(0)} className="dom__reset-button">
+          <button
+            onClick={() => setTimer(0)}
+            className="dom__reset-button"
+          >
             Reset
           </button>
         </div>
@@ -127,7 +153,15 @@ export default function DomManipulation() {
                         ? "dom__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "dom__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -139,9 +173,18 @@ export default function DomManipulation() {
                   <p
                     className="dom__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
+                  </p>
+                  <p
+                    className="dom__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
                   </p>
                   <p
                     className="dom__incorrect"
@@ -152,7 +195,8 @@ export default function DomManipulation() {
                   </p>
                   <p
                     className="dom__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>

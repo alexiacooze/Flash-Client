@@ -68,6 +68,17 @@ export default function Advanced() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="advanced">
       <div className="advanced__top">
@@ -75,6 +86,12 @@ export default function Advanced() {
           <NavLink to="/html">
             <img className="advanced__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="advanced__count-container">
+          <p className="advanced__count-display">
+            <span className="advanced__correct-modifier">Correct:</span>{" "}
+            <span className="advanced__number-modifier">{count >= 0 ? count : false}</span>/26
+          </p>
         </div>
         <div className="advanced__button-divider">
           <div className="advanced__floor-container">
@@ -93,19 +110,19 @@ export default function Advanced() {
           </div>
           <button
             onClick={() => setActive(true)}
-            className="html-basics__start-button"
+            className="advanced__start-button"
           >
             Start
           </button>
           <button
             onClick={() => setActive(false)}
-            className="html-basics__stop-button"
+            className="advanced__stop-button"
           >
             Stop
           </button>
           <button
             onClick={() => setTimer(0)}
-            className="html-basics__reset-button"
+            className="advanced__reset-button"
           >
             Reset
           </button>
@@ -136,7 +153,15 @@ export default function Advanced() {
                         ? "advanced__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "advanced__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -148,9 +173,18 @@ export default function Advanced() {
                   <p
                     className="advanced__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
+                  </p>
+                  <p
+                    className="advanced__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
                   </p>
                   <p
                     className="advanced__incorrect"
@@ -161,7 +195,8 @@ export default function Advanced() {
                   </p>
                   <p
                     className="advanced__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>

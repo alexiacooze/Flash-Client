@@ -68,6 +68,17 @@ export default function Css() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="css">
       <div className="css__top">
@@ -75,6 +86,12 @@ export default function Css() {
           <NavLink to="/html">
             <img className="css__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="css__count-container">
+          <p className="css__count-display">
+            <span className="css__correct-modifier">Correct:</span>{" "}
+            <span className="css__number-modifier">{count >= 0 ? count : false}</span>/26
+          </p>
         </div>
         <div className="css__button-divider">
           <div className="css__floor-container">
@@ -91,13 +108,22 @@ export default function Css() {
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
-          <button onClick={() => setActive(true)} className="css__start-button">
+          <button
+            onClick={() => setActive(true)}
+            className="css__start-button"
+          >
             Start
           </button>
-          <button onClick={() => setActive(false)} className="css__stop-button">
+          <button
+            onClick={() => setActive(false)}
+            className="css__stop-button"
+          >
             Stop
           </button>
-          <button onClick={() => setTimer(0)} className="css__reset-button">
+          <button
+            onClick={() => setTimer(0)}
+            className="css__reset-button"
+          >
             Reset
           </button>
         </div>
@@ -127,7 +153,15 @@ export default function Css() {
                         ? "css__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "css__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -139,9 +173,18 @@ export default function Css() {
                   <p
                     className="css__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
+                  </p>
+                  <p
+                    className="css__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
                   </p>
                   <p
                     className="css__incorrect"
@@ -152,7 +195,8 @@ export default function Css() {
                   </p>
                   <p
                     className="css__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>

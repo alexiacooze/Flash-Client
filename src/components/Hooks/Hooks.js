@@ -68,13 +68,30 @@ export default function Hooks() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="hooks">
       <div className="hooks__top">
         <div className="hooks__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="hooks__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="hooks__count-container">
+          <p className="hooks__count-display">
+            <span className="hooks__correct-modifier">Correct:</span>{" "}
+            <span className="hooks__number-modifier">{count >= 0 ? count : false}</span>/20
+          </p>
         </div>
         <div className="hooks__button-divider">
           <div className="hooks__floor-container">
@@ -103,7 +120,10 @@ export default function Hooks() {
           >
             Stop
           </button>
-          <button onClick={() => setTimer(0)} className="hooks__reset-button">
+          <button
+            onClick={() => setTimer(0)}
+            className="hooks__reset-button"
+          >
             Reset
           </button>
         </div>
@@ -133,7 +153,15 @@ export default function Hooks() {
                         ? "hooks__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "hooks__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -145,9 +173,18 @@ export default function Hooks() {
                   <p
                     className="hooks__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
+                  </p>
+                  <p
+                    className="hooks__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
                   </p>
                   <p
                     className="hooks__incorrect"
@@ -158,12 +195,13 @@ export default function Hooks() {
                   </p>
                   <p
                     className="hooks__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
                   <p
-                    className="hooks__favorite"
+                    className="es6__favorite"
                     onClick={() => answer(card.id, "favorite")}
                   ></p>
                 </div>

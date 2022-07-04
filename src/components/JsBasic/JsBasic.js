@@ -68,75 +68,100 @@ export default function JsBasic() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
-    <section className="basic-js">
-      <div className="basic-js__top">
-        <div className="basic-js__back-divider">
-          <NavLink to="/javascript">
-            <img className="basic-js__back" src={back} alt="Back Arrow" />
+    <section className="js-basic">
+      <div className="js-basic__top">
+        <div className="js-basic__back-divider">
+          <NavLink to="/html">
+            <img className="js-basic__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
-        <div className="basic-js__button-divider">
-          <div className="basic-js__floor-container">
-            <span className="basic-js__floor-1">
+        <div className="js-basic__count-container">
+          <p className="js-basic__count-display">
+            <span className="js-basic__correct-modifier">Correct:</span>{" "}
+            <span className="js-basic__number-modifier">{count >= 0 ? count : false}</span>/26
+          </p>
+        </div>
+        <div className="js-basic__button-divider">
+          <div className="js-basic__floor-container">
+            <span className="js-basic__floor-1">
               {" "}
               {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
             </span>
-            <span className="basic-js__floor-2">
+            <span className="js-basic__floor-2">
               {" "}
               {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
             </span>
-            <span className="basic-js__floor-3">
+            <span className="js-basic__floor-3">
               {" "}
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
           <button
             onClick={() => setActive(true)}
-            className="basic-js__start-button"
+            className="js-basic__start-button"
           >
             Start
           </button>
           <button
             onClick={() => setActive(false)}
-            className="basic-js__stop-button"
+            className="js-basic__stop-button"
           >
             Stop
           </button>
           <button
             onClick={() => setTimer(0)}
-            className="basic-js__reset-button"
+            className="js-basic__reset-button"
           >
             Reset
           </button>
         </div>
       </div>
 
-      <div className="basic-js__card-divider">
+      <div className="js-basic__card-divider">
         {flashcards.map((card) => {
           return (
             <>
               <div
-                className={`basic-js__card-container ${
-                  card.flipped ? "basic-js__flip-card" : ""
+                className={`js-basic__card-container ${
+                  card.flipped ? "js-basic__flip-card" : ""
                 } `}
               >
                 <div
                   onClick={() => flip(card.id)}
                   // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
-                  className={`basic-js__card ${
+                  className={`js-basic__card ${
                     card.correct
                       ? card.correct === "correct"
-                        ? "basic-js__correct-background"
-                        : "basic-js__incorrect-background"
+                        ? "js-basic__correct-background"
+                        : "js-basic__incorrect-background"
                       : ""
                   }  ${
                     card.correct
                       ? card.correct === "clear"
-                        ? "basic-js__clear-background"
+                        ? "js-basic__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "js-basic__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -144,29 +169,39 @@ export default function JsBasic() {
               </div>
               {/*ternary is used to isolate the select options to only the back of the card*/}
               {card.flipped ? (
-                <div className="basic-js__select-container">
+                <div className="js-basic__select-container">
                   <p
-                    className="basic-js__correct"
+                    className="js-basic__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
                   </p>
                   <p
-                    className="basic-js__incorrect"
+                    className="js-basic__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
+                  </p>
+                  <p
+                    className="js-basic__incorrect"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
                     onClick={() => answer(card.id, "incorrect")}
                   >
                     Incorrect
                   </p>
                   <p
-                    className="basic-js__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    className="js-basic__clear"
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
                   <p
-                    className="basic-js__favorite"
+                    className="js-basic__favorite"
                     onClick={() => answer(card.id, "favorite")}
                   ></p>
                 </div>

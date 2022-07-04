@@ -5,6 +5,8 @@ import { NavLink } from "react-router-dom";
 import back from "../../assets/Images/back.png";
 
 export default function Routing() {
+  // creating state for the flashcard toggle and calling the API
+
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
@@ -12,6 +14,7 @@ export default function Routing() {
     // console.log(res);
   }, []);
 
+  // function for the flip of each individual card
   const flip = (id) => {
     const filterId = flashcards.filter((item) => item.id === id);
 
@@ -24,7 +27,26 @@ export default function Routing() {
 
     filterFlipped.push(updatedFilterId);
     filterFlipped.sort((a, b) => (a.id > b.id ? 1 : -1));
+    setFlipCard(filterFlipped);
+  };
 
+  // function for the selected color change
+  const answer = (id, correct) => {
+    // filtering the id from flashcard data and storing it within filterId
+    const filterId = flashcards.filter((item) => item.id === id);
+
+    // creating new object that takes filter id and stores it within the new object, sets the correct param to correct
+    const updatedFilterId = {
+      ...filterId[0],
+      correct: correct,
+    };
+
+    // filtering the id and pushing the new filterFlipped into the updatedFilterId above
+    const filterFlipped = flashcards.filter((item) => item.id !== id);
+
+    filterFlipped.push(updatedFilterId);
+    // sorting the filterFlipped and then setting the new state to the setFlipCard
+    filterFlipped.sort((a, b) => (a.id > b.id ? 1 : -1));
     setFlipCard(filterFlipped);
   };
 
@@ -45,13 +67,30 @@ export default function Routing() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="routing">
       <div className="routing__top">
         <div className="routing__back-divider">
-          <NavLink to="/react">
+          <NavLink to="/html">
             <img className="routing__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="routing__count-container">
+          <p className="routing__count-display">
+            <span className="routing__correct-modifier">Correct:</span>{" "}
+            <span className="routing__number-modifier">{count >= 0 ? count : false}</span>/22
+          </p>
         </div>
         <div className="routing__button-divider">
           <div className="routing__floor-container">
@@ -92,19 +131,83 @@ export default function Routing() {
       <div className="routing__card-divider">
         {flashcards.map((card) => {
           return (
-            <div
-              className={`routing__card-container ${
-                card.flipped ? "routing__flip-card" : ""
-              } `}
-            >
+            <>
               <div
-                onClick={() => flip(card.id)}
-                className="routing__card"
-                key={card.id}
+                className={`routing__card-container ${
+                  card.flipped ? "routing__flip-card" : ""
+                } `}
               >
-                <p>{card.flipped ? card.answer : card.questions}</p>
+                <div
+                  onClick={() => flip(card.id)}
+                  // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
+                  className={`routing__card ${
+                    card.correct
+                      ? card.correct === "correct"
+                        ? "routing__correct-background"
+                        : "routing__incorrect-background"
+                      : ""
+                  }  ${
+                    card.correct
+                      ? card.correct === "clear"
+                        ? "routing__clear-background"
+                        : ""
+                      : ""
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "routing__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
+                  key={card.id}
+                >
+                  <p>{card.flipped ? card.answer : card.questions}</p>
+                </div>
               </div>
-            </div>
+              {/*ternary is used to isolate the select options to only the back of the card*/}
+              {card.flipped ? (
+                <div className="routing__select-container">
+                  <p
+                    className="routing__correct"
+                    // correct is evaluated as a string within the ternary card.correct === "correct"
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
+                  >
+                    Correct
+                  </p>
+                  <p
+                    className="routing__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
+                  </p>
+                  <p
+                    className="routing__incorrect"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => answer(card.id, "incorrect")}
+                  >
+                    Incorrect
+                  </p>
+                  <p
+                    className="routing__clear"
+                    onClick={() => 
+                      answer(card.id, "clear")}
+                  >
+                    Clear
+                  </p>
+                  <p
+                    className="routing__favorite"
+                    onClick={() => answer(card.id, "favorite")}
+                  ></p>
+                </div>
+              ) : (
+                ""
+              )}
+            </>
           );
         })}
       </div>

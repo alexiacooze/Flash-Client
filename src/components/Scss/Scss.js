@@ -51,7 +51,6 @@ export default function Sass() {
     setFlipCard(filterFlipped);
   };
 
-
   // creating a function for the stopwatch
   const [timer, setTimer] = useState(0);
   const [active, setActive] = useState(0);
@@ -69,75 +68,100 @@ export default function Sass() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
-    <section className="scss">
-      <div className="scss__top">
-        <div className="scss__back-divider">
+    <section className="sass">
+      <div className="sass__top">
+        <div className="sass__back-divider">
           <NavLink to="/html">
-            <img className="scss__back" src={back} alt="Back Arrow" />
+            <img className="sass__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
-        <div className="scss__button-divider">
-          <div className="scss__floor-container">
-            <span className="scss__floor-1">
+        <div className="sass__count-container">
+          <p className="sass__count-display">
+            <span className="sass__correct-modifier">Correct:</span>{" "}
+            <span className="sass__number-modifier">{count >= 0 ? count : false}</span>/18
+          </p>
+        </div>
+        <div className="sass__button-divider">
+          <div className="sass__floor-container">
+            <span className="sass__floor-1">
               {" "}
               {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:
             </span>
-            <span className="scss__floor-2">
+            <span className="sass__floor-2">
               {" "}
               {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:
             </span>
-            <span className="scss__floor-3">
+            <span className="sass__floor-3">
               {" "}
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
           <button
             onClick={() => setActive(true)}
-            className="scss__start-button"
+            className="sass__start-button"
           >
             Start
           </button>
           <button
             onClick={() => setActive(false)}
-            className="scss__stop-button"
+            className="sass__stop-button"
           >
             Stop
           </button>
           <button
             onClick={() => setTimer(0)}
-            className="scss__reset-button"
+            className="sass__reset-button"
           >
             Reset
           </button>
         </div>
       </div>
 
-      <div className="scss__card-divider">
+      <div className="sass__card-divider">
         {flashcards.map((card) => {
           return (
             <>
               <div
-                className={`scss__card-container ${
-                  card.flipped ? "scss__flip-card" : ""
+                className={`sass__card-container ${
+                  card.flipped ? "sass__flip-card" : ""
                 } `}
               >
                 <div
                   onClick={() => flip(card.id)}
                   // check cards.correct if it is true then evaluate if cards === correct, the value set within the onClick, if it is true then set the background color to the class of correct-background, if it is false then set the background color to class incorrect-background, if that is false then set to an empty string
-                  className={`scss__card ${
+                  className={`sass__card ${
                     card.correct
                       ? card.correct === "correct"
-                        ? "scss__correct-background"
-                        : "scss__incorrect-background"
+                        ? "sass__correct-background"
+                        : "sass__incorrect-background"
                       : ""
                   }  ${
                     card.correct
                       ? card.correct === "clear"
-                        ? "scss__clear-background"
+                        ? "sass__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "sass__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -145,29 +169,39 @@ export default function Sass() {
               </div>
               {/*ternary is used to isolate the select options to only the back of the card*/}
               {card.flipped ? (
-                <div className="scss__select-container">
+                <div className="sass__select-container">
                   <p
-                    className="scss__correct"
+                    className="sass__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
                   </p>
                   <p
-                    className="scss__incorrect"
+                    className="sass__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
+                  </p>
+                  <p
+                    className="sass__incorrect"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
                     onClick={() => answer(card.id, "incorrect")}
                   >
                     Incorrect
                   </p>
                   <p
-                    className="scss__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    className="sass__clear"
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
                   <p
-                    className="scss__favorite"
+                    className="sass__favorite"
                     onClick={() => answer(card.id, "favorite")}
                   ></p>
                 </div>

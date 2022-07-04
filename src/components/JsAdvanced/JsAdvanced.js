@@ -68,13 +68,30 @@ export default function JsAdvanced() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="js-advanced">
       <div className="js-advanced__top">
         <div className="js-advanced__back-divider">
-          <NavLink to="/javascript">
+          <NavLink to="/html">
             <img className="js-advanced__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="js-advanced__count-container">
+          <p className="js-advanced__count-display">
+            <span className="js-advanced__correct-modifier">Correct:</span>{" "}
+            <span className="js-advanced__number-modifier">{count >= 0 ? count : false}</span>/26
+          </p>
         </div>
         <div className="js-advanced__button-divider">
           <div className="js-advanced__floor-container">
@@ -136,7 +153,15 @@ export default function JsAdvanced() {
                         ? "js-advanced__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "js-advanced__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -146,27 +171,37 @@ export default function JsAdvanced() {
               {card.flipped ? (
                 <div className="js-advanced__select-container">
                   <p
-                    className="hooks__correct"
+                    className="js-advanced__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
                   </p>
                   <p
-                    className="hooks__incorrect"
+                    className="js-advanced__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
+                  </p>
+                  <p
+                    className="js-advanced__incorrect"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
                     onClick={() => answer(card.id, "incorrect")}
                   >
                     Incorrect
                   </p>
                   <p
-                    className="hooks__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    className="js-advanced__clear"
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
                   <p
-                    className="hooks__favorite"
+                    className="js-advanced__favorite"
                     onClick={() => answer(card.id, "favorite")}
                   ></p>
                 </div>

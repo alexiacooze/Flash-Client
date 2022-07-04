@@ -68,13 +68,30 @@ export default function Es6() {
     return () => clearInterval(timeChange);
   }, [active]);
 
+  // creating a function to track the correct answers
+  const [count, setCount] = useState(0);
+
+  const total = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decreaseTotal = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
+
   return (
     <section className="es6">
       <div className="es6__top">
         <div className="es6__back-divider">
-          <NavLink to="/javascript">
+          <NavLink to="/html">
             <img className="es6__back" src={back} alt="Back Arrow" />
           </NavLink>
+        </div>
+        <div className="es6__count-container">
+          <p className="es6__count-display">
+            <span className="es6__correct-modifier">Correct:</span>{" "}
+            <span className="es6__number-modifier">{count >= 0 ? count : false}</span>/20
+          </p>
         </div>
         <div className="es6__button-divider">
           <div className="es6__floor-container">
@@ -91,13 +108,22 @@ export default function Es6() {
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
-          <button onClick={() => setActive(true)} className="es6__start-button">
+          <button
+            onClick={() => setActive(true)}
+            className="es6__start-button"
+          >
             Start
           </button>
-          <button onClick={() => setActive(false)} className="es6__stop-button">
+          <button
+            onClick={() => setActive(false)}
+            className="es6__stop-button"
+          >
             Stop
           </button>
-          <button onClick={() => setTimer(0)} className="es6__reset-button">
+          <button
+            onClick={() => setTimer(0)}
+            className="es6__reset-button"
+          >
             Reset
           </button>
         </div>
@@ -127,7 +153,15 @@ export default function Es6() {
                         ? "es6__clear-background"
                         : ""
                       : ""
-                  } `}
+                  } 
+                  ${
+                    card.correct
+                      ? card.correct === "remove"
+                        ? "es6__clear-background"
+                        : ""
+                      : ""
+                  }
+                  `}
                   key={card.id}
                 >
                   <p>{card.flipped ? card.answer : card.questions}</p>
@@ -139,9 +173,18 @@ export default function Es6() {
                   <p
                     className="es6__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
-                    onClick={() => answer(card.id, "correct")}
+                    onClick={() => {
+                      answer(card.id, "correct"); total() 
+                    }}
                   >
                     Correct
+                  </p>
+                  <p
+                    className="es6__remove"
+                    // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
+                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                  >
+                    Remove
                   </p>
                   <p
                     className="es6__incorrect"
@@ -152,7 +195,8 @@ export default function Es6() {
                   </p>
                   <p
                     className="es6__clear"
-                    onClick={() => answer(card.id, "clear")}
+                    onClick={() => 
+                      answer(card.id, "clear")}
                   >
                     Clear
                   </p>
