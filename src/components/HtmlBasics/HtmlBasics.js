@@ -78,9 +78,9 @@ export default function HtmlBasics() {
         </div>
         <div className="html-basics__button-divider">
           <div className="html-basics__floor-container">
-            <span> {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:</span>
-            <span> {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:</span>
-            <span> {("0" + Math.floor((timer / 10) % 100)).slice(-2)}</span>
+            <span className="html-basics__floor-1"> {("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:</span>
+            <span className="html-basics__floor-2"> {("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:</span>
+            <span className="html-basics__floor-3"> {("0" + Math.floor((timer / 10) % 100)).slice(-2)}</span>
           </div>
           <button
             onClick={() => setActive(true)}
@@ -93,12 +93,6 @@ export default function HtmlBasics() {
             className="html-basics__stop-button"
           >
             Stop
-          </button>
-          <button
-            onClick={() => setActive(true)}
-            className="html-basics__resume-button"
-          >
-            Resume
           </button>
           <button
             onClick={() => setTimer(0)}
