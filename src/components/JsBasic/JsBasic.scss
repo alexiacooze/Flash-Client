@@ -1,0 +1,206 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+
+.js-basic {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card-divider {
+    background-color: rgb(8, 8, 57);
+
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 1rem;
+    }
+  }
+
+  &__back {
+    width: 2rem;
+    margin: 1rem;
+    display: inline;
+    @include desktop {
+      margin-left: 3rem;
+      padding-top: 1rem;
+    }
+  }
+
+  &__count-container {
+    @include desktop {
+      // position: relative;
+      // left: 28.5rem;
+      margin-top: 2.5rem;
+      padding-right: 3rem;
+    }
+  }
+
+  &__count-display {
+  }
+
+  &__correct-modifier {
+    @include desktop {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: rgb(41, 172, 41);
+    }
+  }
+
+  &__start-button {
+    @include desktop {
+      background-color: rgb(8, 8, 57);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 10px;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+  }
+
+  &__stop-button {
+    @include desktop {
+      background-color: rgb(8, 8, 57);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 10px;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+  }
+
+  &__reset-button {
+    @include desktop {
+      background-color: rgb(52, 52, 94);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 10px;
+      margin-right: 3rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  &__button-divider {
+    @include desktop {
+      margin: 1rem;
+    }
+  }
+
+  &__floor-1 {
+    @include desktop {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
+
+  &__floor-2 {
+    @include desktop {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+
+  &__floor-3 {
+    @include desktop {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+  &__card-container {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+      padding-top: 1rem;
+    }
+  }
+
+  &__card {
+    display: flex;
+
+    justify-content: center;
+    padding: 2rem;
+    margin: 0.5rem 1rem;
+    -webkit-box-shadow: -2px -1px 15px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: -4px -3px 20px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 3%;
+    background-color: white;
+    transform: rotateY(var(--rotate-y, 0));
+    transform-style: preserve-3d;
+    transition: 500ms;
+
+    @include desktop {
+      padding: 4rem 2rem;
+      margin: 1rem;
+      width: 20rem;
+    }
+  }
+
+  &__flip-card {
+    --rotate-y: 180deg;
+    transform: scaleX(-1);
+  }
+
+  &__select-container {
+    // padding-left: rem;
+  }
+
+  &__correct {
+    background-color: rgb(194, 255, 194);
+    border-radius: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.7rem;
+    text-align: center;
+  }
+
+  &__incorrect {
+    background-color: rgb(255, 147, 147);
+    border-radius: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.7rem;
+    text-align: center;
+  }
+
+  &__clear {
+    background-color: white;
+    border-radius: 1rem;
+    font-weight: bold;
+    padding: 0.2rem 0.7rem;
+    text-align: center;
+  }
+
+  &__remove {
+    @include desktop {
+      background-color: white;
+      border-radius: 1rem;
+      font-weight: bold;
+      padding: 0.2rem 0.7rem;
+      text-align: center;
+    }
+  }
+
+  &__correct:hover {
+    background-color: rgb(155, 244, 155);
+  }
+
+  &__incorrect:hover {
+    background-color: rgb(254, 115, 115);
+  }
+
+  &__incorrect-background {
+    background-color: rgb(255, 202, 202);
+  }
+
+  &__correct-background {
+    background-color: rgb(199, 245, 199);
+  }
+
+  &__clear-background {
+    background-color: white;
+  }
+}

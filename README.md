@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Flash
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an online study tool that has FREE pre-generated flashcard-style questions to aid in learning the core concepts of front-end development.
 
-## Available Scripts
+# The Problem
 
-In the project directory, you can run:
+In many traditional programs, there is an emphasis on theory, and general cs knowledge, and a lack of practical knowledge.
 
-### `npm start`
+## User Profile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is curated for university, college, boot-camp students, or self-learners. This project is also an ideal resource for prepping for the non-technical aspect of front-end software development interviews.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+# The Design 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The visual flashcard design was used to aid in creating long-term memory storage. Traditional methods of studying typically include reading, writing out, and re-reading information. This method has not been shown to be as effective in generating long-term memory in a shorter duration of time. Active recall has been shown to have the most effective impact on turning short term, and working memory into long-term memory via re-accessing previously encoding information. Active recall works by recalling brief information that has previously been stored in memory. This is done by thinking of the information, which triggers the brain to replay similar patterns of the neural activity that was originally created during the initial event that created the memory. 
 
-### `npm run build`
+# Tech Stack and APIs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Client: JSX, SCSS, Javascript, and React.
+Server: Node.js, Express.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+No external APIs were used. All APIs were creating internally with Node.js and Express.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Installation for Client Side
 
-### `npm run eject`
+### `In Visual Studio Code`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Download visual studio code https://code.visualstudio.com/
+1. Once opening VScode select Clone Git Repository within the get started tab, or select the Explorer tab within the left hand  corner and then select Clone Repository
+2. Within the search bar, select Clone from Github
+3. Sign in to GitHub and allow for authentication 
+4. Within the search bar, search the repository name, and select the repository (alexiacooze/Capstone-Client-Side)
+5. You will then be prompted to select a location for the file to be stored on your computer (best to save it directly to your desktop)
+6. The repository will then be cloned to that location. VScode will then ask if you would like to open the cloned repository
+7. Select Open
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `In Terminal`
+*After every terminal command press enter
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Open the terminal within VScode
+You may need to cd into the folder name, or location where the repository was saved. I.e., if it was saved on your desktop, then you will first need to type in the terminal: cd desktop
+2. Type into the terminal: npm i
+3. Type into the terminal: npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The terminal in VScode will return
 
-## Learn More
+The Flash application will then open in your browser
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Installation for Server-Side
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `Backend`
 
-### Code Splitting
+In order to have the data populate from the server side to the client side, you must clone the sever side repository. 
+Go to https://github.com/alexiacooze/Capstone-server-side and follow the installation instructionS found below
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### `In Visual Studio Code (VScode)`
 
-### Analyzing the Bundle Size
+Open a new window within Vscode
+1. Once opening A NEW window within VScode, follow the same process of cloning the Git Repository within the get started tab, or select the Explorer tab within the left hand  corner and then select Clone Repository
+2. Within the search bar, select Clone from Github
+4. Within the search bar, search the repository name, and select the repository (alexiacooze/Capstone-Server-Side)
+5. You will then be prompted to select a location for the file to be stored on your computer (best to save it directly to your desktop)
+6. The repository will then be cloned to that location. VScode will then ask if you would like to open the cloned repository
+7. Select Open
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `In Terminal`
+*After every terminal command press enter
 
-### Making a Progressive Web App
+1. Open the terminal within VScode
+You may need to cd into the folder name, or location where the repository was saved. I.e., if it was saved on your desktop, then you will first need to type in the terminal: cd desktop
+2. Type into the terminal: npm i
+3. Type into the terminal: npx nodemon
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The terminal will return Listening on http://localhost:${PORT}
 
-### Advanced Configuration
+The data will then be linked to the client side. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+You are now ready to start using the FLASH application!
 
-### Deployment
+# Additional resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### `Direct Links to The Repositories`
+https://github.com/alexiacooze/Capstone-Client-Side
 
-### `npm run build` fails to minify
+https://github.com/alexiacooze/Capstone-server-side
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Contact`
+https://www.linkedin.com/in/alexiacooze/
+
+Email: alexiacooze1@gmail.com
