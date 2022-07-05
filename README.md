@@ -22,36 +22,58 @@ Server: Node.js, Express.js
 
 No external APIs were used. All APIs were creating internally with Node.js and Express.js
 
-# Installation
+# Installation for front-end Client side
+
+### `In Visual Studio Code`
+
+Download visual studio code https://code.visualstudio.com/
+1. Once opening VScode select Clone Git Repository within the get started tab, or select the Explorer tab within the left hand  corner and then select Clone Repository
+2. Within the search bar, select Clone from Github
+3. Sign in to GitHub and allow for authentication 
+4. Within the search bar, search the repository name, and select the repository (alexiacooze/Capstone-Client-Side)
+5. You will then be prompted to select a location for the file to be stored on your computer (best to save it directly to your desktop)
+6. The repository will then be cloned to that location. VScode will then ask if you would like to open the cloned repository
+7. Select Open
+
 ### `In terminal`
+*After every terminal command press enter
 
-cd flash 
-npm i
-npm start
+1. Open the terminal within VScode
+You may need to cd into the folder name, or location where the repository was saved. I.e., if it was saved on your desktop, then you will first need to type in the terminal: cd desktop
+2. Type into the terminal: npm i
+3. Type into the terminal: npm start
 
-The react app will then open in your browser
+The terminal in VScode will return
 
-### `npm test`
+The Flash application will then open in your browser
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Installation for back-end Server-side
 
-### `npm run build`
+### `Backend`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In order to have the data populate from the server side to the client side, you must clone the sever side repository. 
+Go to https://github.com/alexiacooze/Capstone-server-side and follow the installation instructionS found below
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `In Visual Studio Code (VScode)`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Open a new window within Vscode
+1. Once opening A NEW window within VScode, follow the same process of cloning the Git Repository within the get started tab, or select the Explorer tab within the left hand  corner and then select Clone Repository
+2. Within the search bar, select Clone from Github
+4. Within the search bar, search the repository name, and select the repository (alexiacooze/Capstone-Server-Side)
+5. You will then be prompted to select a location for the file to be stored on your computer (best to save it directly to your desktop)
+6. The repository will then be cloned to that location. VScode will then ask if you would like to open the cloned repository
+7. Select Open
 
-### `npm run eject`
+### `In terminal`
+*After every terminal command press enter
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Open the terminal within VScode
+You may need to cd into the folder name, or location where the repository was saved. I.e., if it was saved on your desktop, then you will first need to type in the terminal: cd desktop
+2. Type into the terminal: npm i
+3. Type into the terminal: npx nodemon
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The terminal will return 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The data will then be linked to the client side. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You are now ready to start using the FLASH application!
