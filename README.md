@@ -1,18 +1,35 @@
-# Getting Started with Create React App
+# Flash
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an online study tool that has FREE pre-generated flashcard-style questions to aid in learning the core concepts of front-end development.
 
-## Available Scripts
+# The Problem
 
-In the project directory, you can run:
+In many traditional programs, there is an emphasis on theory, and general cs knowledge, and a lack of practical knowledge.
 
-### `npm start`
+## User Profile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is curated for university, college, boot-camp students, or self-learners. This project is also an ideal resource for prepping for the non-technical aspect of front-end software development interviews.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+
+# The Design 
+
+The visual flashcard design was used to aid in creating long-term memory storage. Traditional methods of studying typically include reading, writing out, and re-reading information. This method has not been shown to be as effective in generating long-term memory in a shorter duration of time. Active recall has been shown to have the most effective impact on turning short term, and working memory into long-term memory via re-accessing previously encoding information. Active recall works by recalling brief information that has previously been stored in memory. This is done by thinking of the information, which triggers the brain to replay similar patterns of the neural activity that was originally created during the initial event that created the memory. 
+
+# Tech Stack and APIs
+
+Client: JSX, SCSS, Javascript, and React.
+Server: Node.js, Express.js
+
+No external APIs were used. All APIs were creating internally with Node.js and Express.js
+
+# Installation
+### `In terminal`
+
+cd flash 
+npm i
+npm start
+
+The react app will then open in your browser
 
 ### `npm test`
 
@@ -38,33 +55,3 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
