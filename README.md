@@ -77,3 +77,14 @@ The terminal will return
 The data will then be linked to the client side. 
 
 You are now ready to start using the FLASH application!
+
+# Additional resources
+
+### `Direct links to the repositories`
+https://github.com/alexiacooze/Capstone-Client-Side
+https://github.com/alexiacooze/Capstone-server-side
+
+### `Reach out to me via`
+https://www.linkedin.com/in/alexiacooze/
+
+Email: alexiacooze1@gmail.com
