@@ -11,7 +11,9 @@ export default function ElementsAttributes() {
   const [flashcards, setFlipCard] = useState([]);
 
   useEffect(() => {
-    CATEGORIES_API.getAll("elements-attributes").then((res) => setFlipCard(res.data));
+    CATEGORIES_API.getAll("elements-attributes").then((res) =>
+      setFlipCard(res.data)
+    );
     // console.log(res);
   }, []);
 
@@ -90,7 +92,10 @@ export default function ElementsAttributes() {
         <div className="elements__count-container">
           <p className="elements__count-display">
             <span className="elements__correct-modifier">Correct:</span>{" "}
-            <span className="elements__number-modifier">{count >= 0 ? count : false}</span>/30
+            <span className="elements__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /30
           </p>
         </div>
         <div className="elements__button-divider">
@@ -174,7 +179,8 @@ export default function ElementsAttributes() {
                     className="elements__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -182,7 +188,10 @@ export default function ElementsAttributes() {
                   <p
                     className="elements__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -195,8 +204,7 @@ export default function ElementsAttributes() {
                   </p>
                   <p
                     className="elements__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

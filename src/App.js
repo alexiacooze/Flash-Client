@@ -47,11 +47,11 @@ function App() {
         <Route path="/advanced" element={<Advanced />} />
         <Route path="/css" element={<Css />} />
         <Route path="/responsive-design" element={<Responsive />} />
-        <Route path="/sass" element={<Scss/>} /> 
-        <Route path="/js-basic" element={<JsBasic/>} /> 
-        <Route path="/dom" element={<DomManipulation/>} /> 
-        <Route path="/es6" element={<Es6/>} /> 
-        <Route path="/js-advanced" element={<JsAdvanced/>} /> 
+        <Route path="/sass" element={<Scss />} />
+        <Route path="/js-basic" element={<JsBasic />} />
+        <Route path="/dom" element={<DomManipulation />} />
+        <Route path="/es6" element={<Es6 />} />
+        <Route path="/js-advanced" element={<JsAdvanced />} />
       </Routes>
     </BrowserRouter>
   );

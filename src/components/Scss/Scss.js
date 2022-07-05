@@ -90,7 +90,10 @@ export default function Sass() {
         <div className="sass__count-container">
           <p className="sass__count-display">
             <span className="sass__correct-modifier">Correct:</span>{" "}
-            <span className="sass__number-modifier">{count >= 0 ? count : false}</span>/18
+            <span className="sass__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /18
           </p>
         </div>
         <div className="sass__button-divider">
@@ -120,10 +123,7 @@ export default function Sass() {
           >
             Stop
           </button>
-          <button
-            onClick={() => setTimer(0)}
-            className="sass__reset-button"
-          >
+          <button onClick={() => setTimer(0)} className="sass__reset-button">
             Reset
           </button>
         </div>
@@ -174,7 +174,8 @@ export default function Sass() {
                     className="sass__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -182,7 +183,10 @@ export default function Sass() {
                   <p
                     className="sass__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -195,8 +199,7 @@ export default function Sass() {
                   </p>
                   <p
                     className="sass__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

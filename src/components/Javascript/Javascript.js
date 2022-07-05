@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 export default function Javascript() {
   return (
     <section className="javascript">
-      
       <div className="javascript__main-container">
         <ul className="javascript__item-container">
           <NavLink to="/js-basic" style={{ textDecoration: "none" }}>

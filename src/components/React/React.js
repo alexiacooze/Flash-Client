@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 export default function Categories() {
   return (
     <section className="category">
-      
       <div className="category__main-container">
         <ul className="category__item-container">
           <NavLink to="/setup" style={{ textDecoration: "none" }}>

@@ -90,7 +90,10 @@ export default function HtmlForms() {
         <div className="forms__count-container">
           <p className="forms__count-display">
             <span className="forms__correct-modifier">Correct:</span>{" "}
-            <span className="forms__number-modifier">{count >= 0 ? count : false}</span>/21
+            <span className="forms__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /21
           </p>
         </div>
         <div className="forms__button-divider">
@@ -120,10 +123,7 @@ export default function HtmlForms() {
           >
             Stop
           </button>
-          <button
-            onClick={() => setTimer(0)}
-            className="forms__reset-button"
-          >
+          <button onClick={() => setTimer(0)} className="forms__reset-button">
             Reset
           </button>
         </div>
@@ -174,7 +174,8 @@ export default function HtmlForms() {
                     className="forms__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -182,7 +183,10 @@ export default function HtmlForms() {
                   <p
                     className="forms__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -195,8 +199,7 @@ export default function HtmlForms() {
                   </p>
                   <p
                     className="forms__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

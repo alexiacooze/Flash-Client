@@ -22,7 +22,7 @@ Server: Node.js, Express.js
 
 No external APIs were used. All APIs were creating internally with Node.js and Express.js
 
-# Installation for front-end Client side
+# Installation for Client Side
 
 ### `In Visual Studio Code`
 
@@ -35,7 +35,7 @@ Download visual studio code https://code.visualstudio.com/
 6. The repository will then be cloned to that location. VScode will then ask if you would like to open the cloned repository
 7. Select Open
 
-### `In terminal`
+### `In Terminal`
 *After every terminal command press enter
 
 1. Open the terminal within VScode
@@ -47,7 +47,7 @@ The terminal in VScode will return
 
 The Flash application will then open in your browser
 
-# Installation for back-end Server-side
+# Installation for Server-Side
 
 ### `Backend`
 
@@ -64,7 +64,7 @@ Open a new window within Vscode
 6. The repository will then be cloned to that location. VScode will then ask if you would like to open the cloned repository
 7. Select Open
 
-### `In terminal`
+### `In Terminal`
 *After every terminal command press enter
 
 1. Open the terminal within VScode
@@ -72,7 +72,7 @@ You may need to cd into the folder name, or location where the repository was sa
 2. Type into the terminal: npm i
 3. Type into the terminal: npx nodemon
 
-The terminal will return 
+The terminal will return Listening on http://localhost:${PORT}
 
 The data will then be linked to the client side. 
 
@@ -80,11 +80,12 @@ You are now ready to start using the FLASH application!
 
 # Additional resources
 
-### `Direct links to the repositories`
+### `Direct Links to The Repositories`
 https://github.com/alexiacooze/Capstone-Client-Side
+
 https://github.com/alexiacooze/Capstone-server-side
 
-### `Reach out to me via`
+### `Contact`
 https://www.linkedin.com/in/alexiacooze/
 
 Email: alexiacooze1@gmail.com

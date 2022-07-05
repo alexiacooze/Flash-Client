@@ -90,7 +90,10 @@ export default function DomManipulation() {
         <div className="dom__count-container">
           <p className="dom__count-display">
             <span className="dom__correct-modifier">Correct:</span>{" "}
-            <span className="dom__number-modifier">{count >= 0 ? count : false}</span>/13
+            <span className="dom__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /13
           </p>
         </div>
         <div className="dom__button-divider">
@@ -108,22 +111,13 @@ export default function DomManipulation() {
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
-          <button
-            onClick={() => setActive(true)}
-            className="dom__start-button"
-          >
+          <button onClick={() => setActive(true)} className="dom__start-button">
             Start
           </button>
-          <button
-            onClick={() => setActive(false)}
-            className="dom__stop-button"
-          >
+          <button onClick={() => setActive(false)} className="dom__stop-button">
             Stop
           </button>
-          <button
-            onClick={() => setTimer(0)}
-            className="dom__reset-button"
-          >
+          <button onClick={() => setTimer(0)} className="dom__reset-button">
             Reset
           </button>
         </div>
@@ -174,7 +168,8 @@ export default function DomManipulation() {
                     className="dom__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -182,7 +177,10 @@ export default function DomManipulation() {
                   <p
                     className="dom__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -195,8 +193,7 @@ export default function DomManipulation() {
                   </p>
                   <p
                     className="dom__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

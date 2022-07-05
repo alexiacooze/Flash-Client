@@ -89,7 +89,10 @@ export default function Routing() {
         <div className="routing__count-container">
           <p className="routing__count-display">
             <span className="routing__correct-modifier">Correct:</span>{" "}
-            <span className="routing__number-modifier">{count >= 0 ? count : false}</span>/22
+            <span className="routing__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /22
           </p>
         </div>
         <div className="routing__button-divider">
@@ -119,10 +122,7 @@ export default function Routing() {
           >
             Stop
           </button>
-          <button
-            onClick={() => setTimer(0)}
-            className="routing__reset-button"
-          >
+          <button onClick={() => setTimer(0)} className="routing__reset-button">
             Reset
           </button>
         </div>
@@ -173,7 +173,8 @@ export default function Routing() {
                     className="routing__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -181,7 +182,10 @@ export default function Routing() {
                   <p
                     className="routing__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -194,8 +198,7 @@ export default function Routing() {
                   </p>
                   <p
                     className="routing__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

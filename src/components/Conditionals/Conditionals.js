@@ -89,7 +89,10 @@ export default function Conditionals() {
         <div className="conditionals__count-container">
           <p className="conditionals__count-display">
             <span className="conditionals__correct-modifier">Correct:</span>{" "}
-            <span className="conditionals__number-modifier">{count >= 0 ? count : false}</span>/30
+            <span className="conditionals__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /30
           </p>
         </div>
         <div className="conditionals__button-divider">
@@ -173,7 +176,8 @@ export default function Conditionals() {
                     className="conditionals__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -181,7 +185,10 @@ export default function Conditionals() {
                   <p
                     className="conditionals__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -194,8 +201,7 @@ export default function Conditionals() {
                   </p>
                   <p
                     className="conditionals__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

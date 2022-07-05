@@ -89,7 +89,10 @@ export default function Api() {
         <div className="api__count-container">
           <p className="api__count-display">
             <span className="api__correct-modifier">Correct:</span>{" "}
-            <span className="api__number-modifier">{count >= 0 ? count : false}</span>/30
+            <span className="api__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /30
           </p>
         </div>
         <div className="api__button-divider">
@@ -107,22 +110,13 @@ export default function Api() {
               {("0" + Math.floor((timer / 10) % 100)).slice(-2)}
             </span>
           </div>
-          <button
-            onClick={() => setActive(true)}
-            className="api__start-button"
-          >
+          <button onClick={() => setActive(true)} className="api__start-button">
             Start
           </button>
-          <button
-            onClick={() => setActive(false)}
-            className="api__stop-button"
-          >
+          <button onClick={() => setActive(false)} className="api__stop-button">
             Stop
           </button>
-          <button
-            onClick={() => setTimer(0)}
-            className="api__reset-button"
-          >
+          <button onClick={() => setTimer(0)} className="api__reset-button">
             Reset
           </button>
         </div>
@@ -173,7 +167,8 @@ export default function Api() {
                     className="api__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -181,7 +176,10 @@ export default function Api() {
                   <p
                     className="api__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -194,8 +192,7 @@ export default function Api() {
                   </p>
                   <p
                     className="api__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

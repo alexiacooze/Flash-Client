@@ -90,7 +90,10 @@ export default function JsAdvanced() {
         <div className="js-advanced__count-container">
           <p className="js-advanced__count-display">
             <span className="js-advanced__correct-modifier">Correct:</span>{" "}
-            <span className="js-advanced__number-modifier">{count >= 0 ? count : false}</span>/26
+            <span className="js-advanced__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /26
           </p>
         </div>
         <div className="js-advanced__button-divider">
@@ -174,7 +177,8 @@ export default function JsAdvanced() {
                     className="js-advanced__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -182,7 +186,10 @@ export default function JsAdvanced() {
                   <p
                     className="js-advanced__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -195,8 +202,7 @@ export default function JsAdvanced() {
                   </p>
                   <p
                     className="js-advanced__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>

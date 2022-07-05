@@ -90,7 +90,10 @@ export default function Hooks() {
         <div className="hooks__count-container">
           <p className="hooks__count-display">
             <span className="hooks__correct-modifier">Correct:</span>{" "}
-            <span className="hooks__number-modifier">{count >= 0 ? count : false}</span>/20
+            <span className="hooks__number-modifier">
+              {count >= 0 ? count : false}
+            </span>
+            /20
           </p>
         </div>
         <div className="hooks__button-divider">
@@ -120,10 +123,7 @@ export default function Hooks() {
           >
             Stop
           </button>
-          <button
-            onClick={() => setTimer(0)}
-            className="hooks__reset-button"
-          >
+          <button onClick={() => setTimer(0)} className="hooks__reset-button">
             Reset
           </button>
         </div>
@@ -174,7 +174,8 @@ export default function Hooks() {
                     className="hooks__correct"
                     // correct is evaluated as a string within the ternary card.correct === "correct"
                     onClick={() => {
-                      answer(card.id, "correct"); total() 
+                      answer(card.id, "correct");
+                      total();
                     }}
                   >
                     Correct
@@ -182,7 +183,10 @@ export default function Hooks() {
                   <p
                     className="hooks__remove"
                     // incorrect is not evaluated as correct is true, therefore "incorrect" is just a place holder. The placeholder only needs a truthy value in order for the ternary to work
-                    onClick={() => {answer(card.id, "remove"); decreaseTotal()}}
+                    onClick={() => {
+                      answer(card.id, "remove");
+                      decreaseTotal();
+                    }}
                   >
                     Remove
                   </p>
@@ -195,8 +199,7 @@ export default function Hooks() {
                   </p>
                   <p
                     className="hooks__clear"
-                    onClick={() => 
-                      answer(card.id, "clear")}
+                    onClick={() => answer(card.id, "clear")}
                   >
                     Clear
                   </p>
