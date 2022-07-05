@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# with src folder
+setUpTests.js
+reportWebVitals.js
+logo.svg
+App.test.js
