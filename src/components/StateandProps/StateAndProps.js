@@ -82,7 +82,7 @@ export default function StateAndProps() {
     <section className="state">
       <div className="state__top">
         <div className="state__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="state__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

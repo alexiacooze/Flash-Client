@@ -82,7 +82,7 @@ export default function Routing() {
     <section className="routing">
       <div className="routing__top">
         <div className="routing__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="routing__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

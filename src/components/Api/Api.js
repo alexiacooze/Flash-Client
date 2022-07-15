@@ -82,7 +82,7 @@ export default function Api() {
     <section className="api">
       <div className="api__top">
         <div className="api__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="api__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

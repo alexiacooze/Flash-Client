@@ -83,7 +83,7 @@ export default function Hooks() {
     <section className="hooks">
       <div className="hooks__top">
         <div className="hooks__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="hooks__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

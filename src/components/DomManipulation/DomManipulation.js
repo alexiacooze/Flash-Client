@@ -83,7 +83,7 @@ export default function DomManipulation() {
     <section className="dom">
       <div className="dom__top">
         <div className="dom__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/javascript">
             <img className="dom__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

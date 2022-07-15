@@ -82,7 +82,7 @@ export default function Conditionals() {
     <section className="conditionals">
       <div className="conditionals__top">
         <div className="conditionals__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="conditionals__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

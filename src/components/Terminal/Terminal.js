@@ -82,7 +82,7 @@ export default function Terminal() {
     <section className="terminal">
       <div className="terminal__top">
         <div className="terminal__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="terminal__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

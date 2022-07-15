@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/";
+const API_URL = "https://flashserver.herokuapp.com/";
 
 export const CATEGORIES_API = {
   getAll: (endpoint) => {

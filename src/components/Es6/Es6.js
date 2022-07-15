@@ -83,7 +83,7 @@ export default function Es6() {
     <section className="es6">
       <div className="es6__top">
         <div className="es6__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/javascript">
             <img className="es6__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

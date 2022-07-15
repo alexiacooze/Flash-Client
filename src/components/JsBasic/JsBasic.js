@@ -83,7 +83,7 @@ export default function JsBasic() {
     <section className="js-basic">
       <div className="js-basic__top">
         <div className="js-basic__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/javascript">
             <img className="js-basic__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

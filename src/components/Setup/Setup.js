@@ -82,7 +82,7 @@ export default function Setup() {
     <section className="setup">
       <div className="setup__top">
         <div className="setup__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/react">
             <img className="setup__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>

@@ -83,7 +83,7 @@ export default function JsAdvanced() {
     <section className="js-advanced">
       <div className="js-advanced__top">
         <div className="js-advanced__back-divider">
-          <NavLink to="/html">
+          <NavLink to="/javascript">
             <img className="js-advanced__back" src={back} alt="Back Arrow" />
           </NavLink>
         </div>
