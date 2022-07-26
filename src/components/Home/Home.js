@@ -9,7 +9,7 @@ export default function Home() {
         <div className="home__image-container">
           <img className="home__image" src={hero} alt="Hero Header" />
         </div>
-        <div>
+        <div className="home__paragraphs-container">
           <p className="home__slogan">Learn Anytime, Anywhere.</p>
           <p className="home__intro-paragraph">
             {" "}

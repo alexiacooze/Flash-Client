@@ -2,7 +2,9 @@
 @use "../../partials/mixins" as *;
 
 .state {
+
   &__top {
+    margin-right: .5rem;
     display: flex;
     justify-content: space-between;
   }
@@ -18,6 +20,11 @@
     }
   }
 
+  &__floor-container {
+    margin-top: 1rem;
+  }
+
+
   &__back {
     width: 2rem;
     margin: 1rem;
@@ -29,68 +36,84 @@
   }
 
   &__count-container {
+    margin-top: .5rem;
+    margin-right: 1rem;
+    width: 20%;
+
     @include desktop {
-      // position: relative;
-      // left: 28.5rem;
       margin-top: 2.5rem;
       padding-right: 3rem;
     }
   }
 
   &__count-display {
+    margin-right: 1rem;
+    font-size: .8rem;
+  
   }
 
   &__correct-modifier {
+    font-weight: bold;
+    font-size: .9rem;
+    color: rgb(41, 172, 41);
     @include desktop {
-      font-weight: bold;
       font-size: 1.2rem;
-      color: rgb(41, 172, 41);
     }
   }
 
   &__start-button {
+    background-color: rgb(8, 8, 57);
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: .7rem;
+    margin-right: .2rem;
+
     @include desktop {
-      background-color: rgb(8, 8, 57);
-      color: white;
-      padding: 0.3rem 1rem;
-      border-radius: 10px;
       margin-right: 0.5rem;
       margin-top: 0.5rem;
-      font-weight: 600;
+      padding: 0.3rem 1rem;
     }
   }
 
   &__stop-button {
+    background-color: rgb(8, 8, 57);
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: .7rem;
+    margin-right: .2rem;
+    
     @include desktop {
-      background-color: rgb(8, 8, 57);
-      color: white;
-      padding: 0.3rem 1rem;
-      border-radius: 10px;
       margin-right: 0.5rem;
       margin-top: 0.5rem;
-      font-weight: 600;
+      padding: 0.3rem 1rem;
     }
   }
 
   &__reset-button {
+    background-color: rgb(8, 8, 57);
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: .7rem;
+    
     @include desktop {
-      background-color: rgb(52, 52, 94);
-      color: white;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
       padding: 0.3rem 1rem;
-      border-radius: 10px;
-      margin-right: 3rem;
-      text-transform: uppercase;
-      font-weight: 600;
     }
   }
 
   &__button-divider {
+    margin-right: .5rem;
     @include desktop {
       margin: 1rem;
     }
   }
 
   &__floor-1 {
+    font-size: 1rem;
     @include desktop {
       font-size: 1.5rem;
       font-weight: 400;
@@ -98,6 +121,7 @@
   }
 
   &__floor-2 {
+    font-size: .9rem;
     @include desktop {
       font-size: 1.5rem;
       font-weight: 300;
@@ -105,6 +129,7 @@
   }
 
   &__floor-3 {
+    font-size: .9rem;
     @include desktop {
       font-size: 1.5rem;
       font-weight: 300;
@@ -122,7 +147,6 @@
 
   &__card {
     display: flex;
-
     justify-content: center;
     padding: 2rem;
     margin: 0.5rem 1rem;
@@ -147,40 +171,63 @@
   }
 
   &__select-container {
-    // padding-left: rem;
+    display: flex;
+    justify-content: space-between;
+    margin-left: .5rem 0rem .5rem 1rem;
+    
   }
 
   &__correct {
     background-color: rgb(194, 255, 194);
     border-radius: 1rem;
     font-weight: bold;
-    padding: 0.2rem 0.7rem;
+    padding: 0.3rem 0.5rem;
+    margin-left: 1rem;
     text-align: center;
+    font-size: .8rem;
+    @include desktop {
+      padding: 0.2rem 0.7rem;
+      font-size: 1rem;
+    }
   }
 
   &__incorrect {
     background-color: rgb(255, 147, 147);
     border-radius: 1rem;
     font-weight: bold;
-    padding: 0.2rem 0.7rem;
+    padding: 0.3rem 0.5rem;
+    // margin: 0rem 7.5rem .5rem 7.5rem;
+    font-size: .8rem;
     text-align: center;
+    @include desktop {
+      padding: 0.2rem 0.7rem;
+    }
   }
 
   &__clear {
+    // margin: 0rem 6rem 0rem 6rem;
     background-color: white;
     border-radius: 1rem;
     font-weight: bold;
-    padding: 0.2rem 0.7rem;
+    font-size: .8rem;
+    padding: 0.3rem 0.5rem;
+    margin-right: .5rem;
     text-align: center;
+    @include desktop {
+      padding: 0.2rem 0.7rem;
+    }
   }
 
   &__remove {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.3rem 0.5rem;
+    // margin: 0rem 7.5rem .5rem 7.5rem;
+    font-size: .8rem;
+    font-weight: bold;
+    text-align: center;
     @include desktop {
-      background-color: white;
-      border-radius: 1rem;
-      font-weight: bold;
       padding: 0.2rem 0.7rem;
-      text-align: center;
     }
   }
 
